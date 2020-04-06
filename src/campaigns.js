@@ -1,4 +1,4 @@
-const campaigns = {
+const CAMPAIGNS = { //this is a list of test campaigns in a js format
     "4611187": {
         campaign_id: "4611187",
         category: "Sports, Teams & Clubs",
