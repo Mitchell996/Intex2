@@ -83,3 +83,60 @@ return(
 }
 
 export default Home;
+
+/* 
+************************
+NOTE: So idk if this is easier or more simple or just different, but for the home.js I organized by category and then I called the card from there)  
+Basically this is just another way we could do this if we end up running into errors or something
+************************   
+*/
+
+// import React from 'react';
+// import * as bs from 'react-bootstrap';
+// import './index.scss';
+
+// import CampaignCard from './campaign-card.js';
+// import {useParams} from "react-router-dom";
+// import AppContext from './context'
+
+// function Home(props){
+//     let { category }  = useParams();
+//     const context = React.useContext(AppContext)
+    
+//     if (category === undefined){
+//         return(
+//             <>      
+//                 <bs.Container fluid >
+//                     <bs.Row noGutters style={{padding: "2rem 0"}}>
+//                         {(context.campaigns).map((c) => {
+//                             return (
+//                                 <CampaignCard campaign={c} key={c.campaign_id}/> 
+//                             ) 
+//                         })} 
+//                     </bs.Row>
+//                 </bs.Container>
+//             </>
+//         ) 
+//     }
+//     else {
+//         return(
+//             <bs.Container>
+//                 <bs.Row noGutters style={{padding: "2rem 0"}}>
+//                     {context.campaigns.map(c => {
+                        
+//                         if (c.category === (category)) {
+//                             return (
+//                                 <CampaignCard campaign={c} key={c.campaign_id}/>
+//                             )
+//                         }
+//                         else{
+//                             return(null)
+//                         }
+//                     })} 
+//                 </bs.Row>
+//             </bs.Container>
+//         )
+//     } 
+// }
+
+// export default Home;

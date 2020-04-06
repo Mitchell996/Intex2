@@ -28,7 +28,13 @@ function CampaignCard(campaign) {
   )
 }
 
-export default CampaignCard;    // ****Not sure if this way is easier or not, but I created the card like this (below) and then in the home.js this is called to create the cards. ****
+export default CampaignCard;    
+
+/* 
+*****************
+Not sure if this way is easier or not, but I created the card like this (below) and then in the home.js this is called to create the cards. 
+*****************
+*/
 
 // export default function CampaignCard(props) {
 //   return (
