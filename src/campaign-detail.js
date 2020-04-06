@@ -7,10 +7,10 @@ export default function ProductDetail(props) {
     const match = useRouteMatch("/campaign/:campaign")
     //const context = React.useContext(AppContext)
 
-    //when add the context, change campaign to = context.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id))
+    //NOTE: when add the context, change campaign to = context.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id))
     const campaign = CAMPAIGNS[match.params.campaign_id]
 
-    //when add the context, change this parenthesis to (campaign == null)
+    //NOTE: when add the context, change this parenthesis to (campaign == null)
     if (!CAMPAIGNS[match.params.campaign_id]) {
         return (
             <bs.Container>
