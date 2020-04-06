@@ -84,7 +84,7 @@ export default class AppProvider extends React.Component{
     async componentDidMount(){
         //console.log("hello there!")
         const resp = await axios.get('/api/category/')
-        const resp2 = await axios.get('/api/product/')
+        const resp2 = await axios.get('/api/campaign/')
         //console.log("hello there!")
         //console.log(resp2.data)
         console.log("the public_url",process.env.PUBLIC_URL)
