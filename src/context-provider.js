@@ -1,16 +1,16 @@
 import axios from 'axios'
 import AppContext from './context'
 import App from './App'
-import {produce} from 'immer'
+import { produce } from 'immer'
 //import ProductDetail from './ProductDetail'
+import React from 'react'
+
+export default class AppProvider extends React.Component {
 
 
-export default class AppProvider extends React.Component{
-
-
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.actions= {
+        this.actions = {
 
         }
     this.actions = {
@@ -45,28 +45,28 @@ export default class AppProvider extends React.Component{
 
 
 
-    render(){
-        return(
-            <AppContext.Provider value={{...this.state, ...this.actions}}>
+    render() {
+        return (
+            <AppContext.Provider value={{ ...this.state, ...this.actions }}>
                 <App />
             </AppContext.Provider>
         )
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         //console.log("hello there!")
         const resp = await axios.get('/api/category/')
         const resp2 = await axios.get('/api/campaign/')
         //console.log("hello there!")
         //console.log(resp2.data)
-        console.log("the public_url",process.env.PUBLIC_URL)
-        const cats= {}
-        for (const c of resp.data){
+        console.log("the public_url", process.env.PUBLIC_URL)
+        const cats = {}
+        for (const c of resp.data) {
             cats[c.id] = c
 
         }
         const prods = {}
-        for(const p of resp2.data){
+        for (const p of resp2.data) {
             prods[p.id] = p
         }
 
