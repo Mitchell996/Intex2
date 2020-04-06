@@ -13,65 +13,37 @@ export default class AppProvider extends React.Component {
         this.actions = {
 
         }
-        this.actions = {
-            addToCart: this.addToCart,
-            removeFromCart: this.removeFromCart,
-            getCartTotal: this.getCartTotal,
-        }
+    this.actions = {
+        addToCart: this.addToCart,
+        removeFromCart: this.removeFromCart,
+        getCartTotal: this.getCartTotal,
+        updateList: this.updateList,
+    }   
 
-        this.state = {
-            categories: {},
-            products: {},
+        this.state= {
+            categories:{},
+            campaigns:{},
+            campaignDisplays:{},
             cart: {},
             numInCart: 0,
         }
     }
 
-    addToCart = (pid) => {
-        //get current quantity from this.state.cart
-        //set the new cart
-        //const qty = this.state.cart[pid]
-        this.setState(state => produce(state, draft => {
-            const qty = draft.cart[pid]
-            if (!qty) {
-                draft.cart[pid] = 0
-            }
-            draft.cart[pid]++;
-            draft.numInCart++;
+    updateList=(result)=> {
+
+        if(result != 'undefined'){
+            this.state.campaignDisplays = result;
+        }
+        else{
+            console.log("error in result");
+            this.state.campaignDisplays = campaigns;
         }
 
-        ))
     }
 
-    getCartTotal = () => {
-        let cartTotal = 0
-        for (let key in this.state.cart) {
-            let product = this.state.products[key];
-            let number = this.state.cart[key];
-            cartTotal += product.price * number;
-        }
-        return cartTotal;
-    }
-
-    clearCart = () => {
-        this.setState(state => produce(state, draft => {
-            draft.cart = {};
-            draft.numInCart = 0;
-        }))
+    
 
 
-    }
-
-    removeFromCart = (pid) => {
-
-        //const qty = this.state.cart[pid]
-        this.setState(state => produce(state, draft => {
-            const qty = draft.cart[pid]
-            draft.cart[pid] = undefined
-            delete draft.cart[pid];
-            draft.numInCart -= qty;
-        }))
-    }
 
     render() {
         return (
@@ -100,7 +72,7 @@ export default class AppProvider extends React.Component {
 
         this.setState({
             categories: cats,
-            products: prods,
+            campaigns: prods,
         })
     }
 }
