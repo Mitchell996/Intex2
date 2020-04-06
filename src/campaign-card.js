@@ -4,7 +4,7 @@ import { Route, Link } from "react-router-dom";
 //import CAMPAIGNS from './campaigns.js';
 
 function CampaignCard(campaign) {
-  let name = campaign.campaign.name.replace(" ", '_');
+  //let name = campaign.campaign.name.replace(" ", '_');
   //let lower = name.toLowerCase()
   return (
     <bs.Card style={{ width: '10rem', backgroundColor: "gray" }}>

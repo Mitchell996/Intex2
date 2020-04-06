@@ -3,7 +3,7 @@ import AppContext from './context'
 import App from './App'
 import { produce } from 'immer'
 //import ProductDetail from './ProductDetail'
-
+import React from 'react'
 
 export default class AppProvider extends React.Component {
 
