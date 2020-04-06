@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import * as bs from 'react-bootstrap';
-import CAMPAIGNS from 'campaigns.js'
+import CAMPAIGNS from './campaigns.js';
 
 export default function ProductDetail(props) {
     const match = useRouteMatch("/campaign/:campaign")
