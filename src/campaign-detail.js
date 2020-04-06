@@ -1,6 +1,7 @@
+import React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import * as bs from 'react-bootstrap';
-import campaigns from './campaigns.js'
+import campaigns from 'campaigns.js'
 
 export default function ProductDetail(props) {
     const match = useRouteMatch("/campaign/:campaign")
@@ -41,7 +42,6 @@ export default function ProductDetail(props) {
                         <li>If so, what is the charity name? {campaign.charity_name}</li>
                         <li>Charity valid? {campaign.charity_valid}</li>
                     </ul>
-
                 </bs.Row>
             </bs.Container>
         )
