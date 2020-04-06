@@ -1,0 +1,46 @@
+{
+    "campaigns": [
+        {
+            "campaign_id": "4611187",
+            "category": "Sports, Teams & Clubs",
+            "currencycode": "",
+            "current_amount": "",
+            "goal":"",
+            "days_active": "",
+            "title": "",
+            "description": "",
+            "has_beneficiary": "",
+            "user_first_name": "",
+            "user_last_name": "",
+            "status": "",
+            "location_city": "",
+            "location_zip": "",
+            "location_country": "",
+            "is_charity": "",
+            "charity_valid": "",
+            "charity_npo_id": "",
+            "charity_name": ""
+        },
+        {
+            "campaign_id": "4611187",
+            "category": "Sports, Teams & Clubs",
+            "currencycode": "",
+            "current_amount": "",
+            "goal":"",
+            "days_active": "",
+            "title": "",
+            "description": "",
+            "has_beneficiary": "",
+            "user_first_name": "",
+            "user_last_name": "",
+            "status": "",
+            "location_city": "",
+            "location_zip": "",
+            "location_country": "",
+            "is_charity": "",
+            "charity_valid": "",
+            "charity_npo_id": "",
+            "charity_name": "" 
+        }
+    ]
+}
