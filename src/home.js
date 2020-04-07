@@ -35,7 +35,7 @@ function Home(props) {
     }
 
     let { category } = useParams();
-    const [sort, setSort] = useState(1);
+    //const [sort, setSort] = useState(1);
     let organizedCampaigns = organize(category, campaigns);
 
     let count = 0;
