@@ -4,9 +4,6 @@ import App from './App';
 // import { produce } from 'immer';
 //import ProductDetail from './ProductDetail'
 import React from 'react';
-import { Auth0Provider } from "./react-auth0-spa";
-import config from "./auth_config.json";
-import history from "./utils/history";
 
 export default class AppProvider extends React.Component {
 
@@ -15,7 +12,6 @@ export default class AppProvider extends React.Component {
         super(props)
         this.actions = {
             updateList: this.updateList,
-            onRedirectCallback: this.onRedirectCallback
         }
 
         this.state = {
@@ -38,28 +34,11 @@ export default class AppProvider extends React.Component {
     }
 
 
-    onRedirectCallback = appState => {
-        history.push(
-            appState && appState.targetUrl
-                ? appState.targetUrl
-                : window.location.pathname
-        );
-    };
-
-
     render() {
         return (
-            <Auth0Provider // this is for authentication purposes
-                domain={config.domain}
-                client_id={config.clientId}
-                redirect_uri={window.location.origin}
-                onRedirectCallback={onRedirectCallback}
-            >
-                <AppContext.Provider value={{ ...this.state, ...this.actions }}>
+            <AppContext.Provider value={{ ...this.state, ...this.actions }}>
                     <App />
-                </AppContext.Provider>
-            </Auth0Provider>,
-            document.getElementById("root")
+            </AppContext.Provider>
         )
     }
 

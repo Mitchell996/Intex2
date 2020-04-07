@@ -7,13 +7,11 @@ export default function Account(props) {
     return (
         <bs.Container fluid className="p-4">
             <bs.Row noGutters>
-                <h4 className="m-4 text text-center"> Account Information: </h4>
-                <bs.Col>
+                <h4 className="m-4 text text-center"> Log In Status: </h4>
+                <bs.Col className="m-4 text-center">
                     {!isAuthenticated && (
                         <bs.Button className="btn btn-primary" onClick={() => loginWithRedirect({})}>Log in</bs.Button>
                     )}
-                </bs.Col>
-                <bs.Col>
                     {isAuthenticated && <bs.Button className="btn btn-primary" onClick={() => logout()}>Log out</bs.Button>}
                 </bs.Col>
             </bs.Row>

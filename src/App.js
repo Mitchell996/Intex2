@@ -12,8 +12,15 @@ import Container from 'react-bootstrap/Container'
 import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
   return (
     <Router>
       <Container fluid className="p-0  d-flex flex-column">
@@ -28,32 +35,38 @@ function App() {
           </Col>
           <Col md="8">
             <Switch>
+
               <Route path="/home/categories/:category">
                 <Home />
               </Route>
+
               <Route path="/campaign/:campaign">
                 <CampaignDetail />
               </Route>
+
               <Route path="/home">
                 <Home />
               </Route>
-<<<<<<< HEAD
+
               <Route path="/search">
                   <Search />
               </Route>
-              <Route path="/checkout-starter">
+
+              <Route path="/checkout-starter"> </Route>
                 {/* <Checkoutstarter /> */}
-=======
+
               <Route path="/newcampaign">
                 <Form/>
->>>>>>> b6a52f251566d6d97daa520eee5e725089963218
               </Route>
+
               <Route path="/account">
                 <Account/>
               </Route>
+
               <Route path="/">
                 <Home/>{/* <About /> */}
               </Route>
+
             </Switch>
           </Col>
           {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
