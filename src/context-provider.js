@@ -126,7 +126,7 @@ export default class AppProvider extends React.Component {
         const prods = {}
         let i = 0;
         for (const p of resp2.campaign) {
-            prods[i] = p
+            prods[p.campaign_id] = p
             i++;
         }
         let cats = ["nothing"];

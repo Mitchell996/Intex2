@@ -40,7 +40,7 @@ function Home(props) {
     const [charitySort, setCharitySort] = useState(0);
     console.log("Why is there no context?", context.campaigns);
     for (let i = 1; i < (Object.keys(context.campaigns).length) + 1; i++) {
-        campaigns.push(context.campaigns[i-1])
+        campaigns.push(context.campaigns[Object.keys(context.campaigns)[i-1]])
     }
     console.log("what is it? ", campaigns);
     let { category } = useParams();

@@ -9,6 +9,7 @@ import Form from './goFundMeForm'
 import Account from './account'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
+import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -36,8 +37,16 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
+<<<<<<< HEAD
+              <Route path="/search">
+                  <Search />
+              </Route>
+              <Route path="/checkout-starter">
+                {/* <Checkoutstarter /> */}
+=======
               <Route path="/newcampaign">
                 <Form/>
+>>>>>>> b6a52f251566d6d97daa520eee5e725089963218
               </Route>
               <Route path="/account">
                 <Account/>
