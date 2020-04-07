@@ -1,6 +1,6 @@
 const CAMPAIGNS = { //this is a list of test campaigns in a js format
-    "4611187": {
-        campaign_id: "4611187",
+    4611187: {
+        campaign_id: 4611187,
         category: "Sports, Teams & Clubs",
         currencycode: "USD",
         current_amount: 1500.00,
@@ -21,8 +21,8 @@ const CAMPAIGNS = { //this is a list of test campaigns in a js format
         charity_npo_id: "",
         charity_name: ""
     },
-    "39914790": {
-        campaign_id: "39914790",
+    39914790: {
+        campaign_id: 39914790,
         category: "unknown",
         currencycode: "USD",
         current_amount: 905.00,

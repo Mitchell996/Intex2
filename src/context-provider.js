@@ -1,4 +1,4 @@
-import axios from 'axios'
+//import axios from 'axios'
 import AppContext from './context'
 import App from './App'
 import { produce } from 'immer'
@@ -26,7 +26,7 @@ export default class AppProvider extends React.Component {
 
     updateList = (result) => {
 
-        if (result != 'undefined') {
+        if (result !== 'undefined') {
             this.state.campaignDisplays = result;
         }
         else {
@@ -54,7 +54,7 @@ export default class AppProvider extends React.Component {
         //const resp2 = await axios.get('/api/campaign/')
         const resp2 ={"campaign":[  
             {
-                "campaign_id": "4611187",
+                "campaign_id": 4611187,
                 "category": "Sports, Teams & Clubs",
                 "currencycode": "USD",
                 "current_amount": 1500.00,
@@ -76,7 +76,7 @@ export default class AppProvider extends React.Component {
                 "charity_name": ""
             },
             {
-                "campaign_id": "39914790",
+                "campaign_id": 39914790,
                 "category": "unknown",
                 "currencycode": "USD",
                 "current_amount": 905.00,

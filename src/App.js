@@ -14,15 +14,15 @@ import Col from 'react-bootstrap/Col'
 function App() {
   return (
     <Router>
-      <Container fluid className="p-0 min-vh-100 d-flex flex-column">
+      <Container fluid className="p-0  d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
-          <Col className="px-3 py-2" style={{ backgroundColor: "#121C10" }}>
+          <Col className="px-3 py-2">
             <HeaderContainer />
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
           <Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#99CCCC" }}>
-            <LeftContainer />
+            {/* <LeftContainer /> */}
           </Col>
           <Col md="8">
             <Switch>
@@ -42,7 +42,7 @@ function App() {
                 {/* <Cart /> */}
               </Route>
               <Route path="/">
-                {/* <About /> */}
+                <Home/>{/* <About /> */}
               </Route>
             </Switch>
           </Col>
@@ -51,7 +51,7 @@ function App() {
            </Col>*/}
         </Row>
         <Row noGutters className="flexGrow-0 flex-shrink-0">
-          <Col className="px-3 py-2" style={{ backgroundColor: "#CC99CC" }}>
+          <Col className="px-3 py-2">
             {/* <FooterContainer /> */}
           </Col>
         </Row>

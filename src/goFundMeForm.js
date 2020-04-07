@@ -1,7 +1,7 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
-
+import axios from 'axios'
 
 function GoFundMeForm(props) {
 
@@ -105,7 +105,7 @@ const FormController = props => {
                 // })
             }}
         >{form => (
-            <CampaignForm form={form} total={total} /> //    Don't know what to do for total in this part... 
+            <CampaignForm form={form}  /> //    Don't know what to do for total in this part... total={total}
         )}</Formik>
     )
 }
