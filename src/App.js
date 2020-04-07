@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './home';
 import CampaignDetail from './campaign-detail'
+import HeaderContainer from './header-container'
+import LeftContainer from './left-container'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -14,12 +16,12 @@ function App() {
       <Container fluid className="p-0 min-vh-100 d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
           <Col className="px-3 py-2" style={{ backgroundColor: "#121C10" }}>
-            {/* <HeaderContainer /> */}
+            <HeaderContainer />
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
           <Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#99CCCC" }}>
-            {/* <LeftContainer /> */}
+            <LeftContainer />
           </Col>
           <Col md="8">
             <Switch>

@@ -96,8 +96,8 @@ export default Home;
 
 /*
 ************************
-NOTE: So idk if this is easier or more simple or just different, but for the home.js I organized by category and then I called the card from there)
-Basically this is just another way we could do this if we end up running into errors or something
+NOTE: So idk if this is easier or more simple or just different, but for the home.js I organized by category and then I called the card from there
+Basically this is just another way we could do this if we end up running into errors or something idk
 ************************
 */
 
