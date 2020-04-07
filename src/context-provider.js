@@ -13,32 +13,32 @@ export default class AppProvider extends React.Component {
         this.actions = {
 
         }
-    this.actions = {
-        updateList: this.updateList,
-    }   
+        this.actions = {
+            updateList: this.updateList,
+        }
 
-        this.state= {
-            categories:{},
-            campaigns:{},
-            campaignDisplays:{},
+        this.state = {
+            categories: {},
+            campaigns: {},
+            campaignDisplays: {},
             cart: {},
             numInCart: 0,
         }
     }
 
-    updateList=(result)=> {
+    updateList = (result) => {
 
-        if(result != 'undefined'){
+        if (result != 'undefined') {
             this.state.campaignDisplays = result;
         }
-        else{
+        else {
             console.log("error in result");
             this.state.campaignDisplays = campaigns;
         }
 
     }
 
-    
+
 
 
 

@@ -78,20 +78,21 @@ const FormController = props => {
             }}
             onSubmit={async (values, actions) => {
                 console.log('submit', values)
-                const response = await axios.post('http://localhost:8000/campaign/', 
-                    {category: values.category,
-                    currencycode: values.currencycode,
-                    goal: values.goal,
-                    title: values.title,
-                    description: values.description,
-                    has_beneficiary: values.has_beneficiary,
-                    user_first_name: values.user_first_name,
-                    user_last_name: values.user_last_name,
-                    location_city: values.location_city,
-                    location_country: values.location_country,
-                    location_zip: values.location_zip,
-                    is_charity: values.is_charity,
-                    charity_name: values.charity_name,
+                const response = await axios.post('http://localhost:8000/campaign/',
+                    {
+                        category: values.category,
+                        currencycode: values.currencycode,
+                        goal: values.goal,
+                        title: values.title,
+                        description: values.description,
+                        has_beneficiary: values.has_beneficiary,
+                        user_first_name: values.user_first_name,
+                        user_last_name: values.user_last_name,
+                        location_city: values.location_city,
+                        location_country: values.location_country,
+                        location_zip: values.location_zip,
+                        is_charity: values.is_charity,
+                        charity_name: values.charity_name,
                     })
                 console.log('response data: ', response)
                 // const result = await stripe.confirmCardPayment(response.data['client_secret'], {
