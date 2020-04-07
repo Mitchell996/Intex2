@@ -7,6 +7,7 @@ import HeaderContainer from './header-container'
 import LeftContainer from './left-container'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
+import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -33,6 +34,9 @@ function App() {
               </Route>
               <Route path="/home">
                 <Home />
+              </Route>
+              <Route path="/search">
+                  <Search />
               </Route>
               <Route path="/checkout-starter">
                 {/* <Checkoutstarter /> */}

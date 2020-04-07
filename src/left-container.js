@@ -30,21 +30,21 @@ function LeftContainer(props){
     
 
     let categories = [];
-
+    console.log("the categories: ", context.campaigns)
     let length = (Object.keys(context.categories).length)+1
    
-    for (let i = 1; i < length; i++)
+    /*for (let i = 1; i < length; i++)
     {
-        categories.push(context.categories[i].title)
+        categories.push(context.categories[i-1].title)
     }
     
     let campaignCategories = []
     length =(Object.keys(context.campaigns).length)+1
     for(let i = 1; i < length; i++ )
     {
-        campaignCategories.push(context.campaigns[i].category.title)
-    }
-    campaignCategories.push("")
+        campaignCategories.push(context.campaigns[i-1].category/*.title)
+    }*/
+   /* campaignCategories.push("")
     let categoryNum = countCategories(campaignCategories);
     return(
         
@@ -66,6 +66,11 @@ function LeftContainer(props){
                 })
                 
             }
+        </bs.Container>
+    )*/
+    return(
+        <bs.Container>
+            <p>hello there</p>
         </bs.Container>
     )
 }
