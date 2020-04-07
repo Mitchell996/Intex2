@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+import './App.scss';
 import Home from './home';
 import CampaignDetail from './campaign-detail'
 import HeaderContainer from './header-container'
 import LeftContainer from './left-container'
+import Form from './goFundMeForm'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Search from './search'
@@ -14,15 +15,15 @@ import Col from 'react-bootstrap/Col'
 function App() {
   return (
     <Router>
-      <Container fluid className="p-0 min-vh-100 d-flex flex-column">
+      <Container fluid className="p-0  d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
-          <Col className="px-3 py-2" style={{ backgroundColor: "#121C10" }}>
+          <Col className="px-3 py-2">
             <HeaderContainer />
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
           <Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#99CCCC" }}>
-            <LeftContainer />
+            {/* <LeftContainer /> */}
           </Col>
           <Col md="8">
             <Switch>
@@ -35,17 +36,22 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
+<<<<<<< HEAD
               <Route path="/search">
                   <Search />
               </Route>
               <Route path="/checkout-starter">
                 {/* <Checkoutstarter /> */}
+=======
+              <Route path="/newcampaign">
+                <Form/>
+>>>>>>> b6a52f251566d6d97daa520eee5e725089963218
               </Route>
               <Route path="/cart">
                 {/* <Cart /> */}
               </Route>
               <Route path="/">
-                {/* <About /> */}
+                <Home/>{/* <About /> */}
               </Route>
             </Switch>
           </Col>
@@ -54,7 +60,7 @@ function App() {
            </Col>*/}
         </Row>
         <Row noGutters className="flexGrow-0 flex-shrink-0">
-          <Col className="px-3 py-2" style={{ backgroundColor: "#CC99CC" }}>
+          <Col className="px-3 py-2">
             {/* <FooterContainer /> */}
           </Col>
         </Row>

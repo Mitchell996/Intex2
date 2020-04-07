@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as bs from 'react-bootstrap'
-//import PRODUCTS from './product_images/src/products'
+
 import CampaignCard from './campaign-card'
 import { useParams } from 'react-router-dom';
 import AppContext from './context';
@@ -60,26 +60,23 @@ function Home(props) {
                     {Object.values(organizedCampaigns).map((campaign) => {
                         return (<bs.ListGroup key={campaign[0] + count++} horizontal>
                             <bs.Col md="3">
-                                <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id} style={{ backgroundColor: "lightblue" }}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
+                                <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
                             </bs.Col>
                             {campaign.length > 1 ?
                                 (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} style={{ backgroundColor: "lightblue" }}><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
+                                    <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
                                 </bs.Col>) : <div></div>}
                             {campaign.length > 2 ?
                                 (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} style={{ backgroundColor: "lightblue" }}><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
+                                    <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
                                 </bs.Col>) : <div></div>}
                             {campaign.length > 3 ?
                                 (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} style={{ backgroundColor: "lightblue" }}><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
+                                    <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
                                 </bs.Col>) : <div></div>}
                         </bs.ListGroup>)
                     })}
                 </div>
-
-
-
 
             </bs.Row>
             <bs.Row noGutters style={{ padding: "4rem 0" }} className="bg-info shadow">
@@ -104,21 +101,22 @@ Basically this is just another way we could do this if we end up running into er
 // import React from 'react';
 // import * as bs from 'react-bootstrap';
 // import './index.scss';
-
+// import CAMPAIGNS from './campaigns'
 // import CampaignCard from './campaign-card.js';
 // import {useParams} from "react-router-dom";
-// import AppContext from './context'
+// //import AppContext from './context'
 
 // function Home(props){
 //     let { category }  = useParams();
-//     const context = React.useContext(AppContext)
+//     console.log('Category:',category);
+//     //const context = React.useContext(AppContext)
 
 //     if (category === undefined){
 //         return(
 //             <>      
 //                 <bs.Container fluid >
 //                     <bs.Row noGutters style={{padding: "2rem 0"}}>
-//                         {(context.campaigns).map((c) => {
+//                         {Object.values(CAMPAIGNS).map((c) => {
 //                             return (
 //                                 <CampaignCard campaign={c} key={c.campaign_id}/> 
 //                             ) 
@@ -132,9 +130,9 @@ Basically this is just another way we could do this if we end up running into er
 //         return(
 //             <bs.Container>
 //                 <bs.Row noGutters style={{padding: "2rem 0"}}>
-//                     {context.campaigns.map(c => {
+//                     {Object.values(CAMPAIGNS).map(c => {
 
-//                         if (c.category === (category)) {
+//                         if (c.category === parseInt(category)) {
 //                             return (
 //                                 <CampaignCard campaign={c} key={c.campaign_id}/>
 //                             )
