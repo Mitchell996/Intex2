@@ -14,9 +14,6 @@ export default class AppProvider extends React.Component {
 
         }
     this.actions = {
-        addToCart: this.addToCart,
-        removeFromCart: this.removeFromCart,
-        getCartTotal: this.getCartTotal,
         updateList: this.updateList,
     }   
 
