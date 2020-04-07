@@ -1,6 +1,6 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
-import { Formik, Form, Field} from 'formik'
+import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -12,34 +12,34 @@ const stripePromise = loadStripe('pk_test_pFSMf14g5cVZfleYCK0ftIaL00W2M6xQki')
 
 
 function Search(props) {
-    
+
     // we'll add Stripe's Elements component here later
     //console.log("henlo");
     return (
         <Elements stripe={stripePromise}>
-        <SearchController />
+            <SearchController />
         </Elements>
     )
 }
-export default Checkout
+export default Search;
 
 
 const FormSchema = Yup.object().shape({
     title: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!'),
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!'),
     category: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!'),
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!'),
     campaign_id: Yup.string()
-    .min(6, 'Too Short!'),
+        .min(6, 'Too Short!'),
     days_active: Yup.string(),
     user_first_name: Yup.string()
-     .min(2, "Too short!"),
+        .min(2, "Too short!"),
     user_last_name: Yup.string()
-     .min(5, "Too Short!")
-     .max(7, "Too Long!"),
-  });
+        .min(5, "Too Short!")
+        .max(7, "Too Long!"),
+});
 
 const SearchController = props => {
     const context = React.useContext(AppContext);
@@ -50,22 +50,22 @@ const SearchController = props => {
     return (
         <Formik
             initialValues={{
-       
+
             }}
             validateOnChange={false}
             validateOnBlur={false}
             validationSchema={FormSchema}
-            
+
             onSubmit={async (values, actions) => {
-               
+
                 console.log('actions', actions)
                 values["total"] = total;
                 values["items"] = items;
                 console.log('submit', values)
-               const result =  
-                 await axios.post('/api/search/', values)
-               console.log(result)
-               context.UpdateList(result)
+                const result =
+                    await axios.post('/api/search/', values)
+                console.log(result)
+                context.UpdateList(result)
                 /*await new Promise(resolve => {
                     setTimeout(() => {  // wait 2 seconds, then set the form as "not submitting"
                         resolve()
@@ -74,10 +74,10 @@ const SearchController = props => {
                 console.log('after the 2 seconds')*/
                 //console.log(result);
                 if (result.error) {
-                    
+
                     console.log(result.error.message)
                     //error = result.error.message
-                    error=result.error.message
+                    error = result.error.message
                     // Show error to your customer (e.g., insufficient funds)
                     console.log(result.error.message);
                 } else {
@@ -86,20 +86,20 @@ const SearchController = props => {
                         history.push("/searchedCampaign")
                         history.go(1)
 
-                      // Show a success message to your customer
-                      // There's a risk of the customer closing the window before callback
-                      // execution. Set up a webhook or plugin to listen for the
-                      // payment_intent.succeeded event that handles any business critical
-                      // post-payment actions.
+                        // Show a success message to your customer
+                        // There's a risk of the customer closing the window before callback
+                        // execution. Set up a webhook or plugin to listen for the
+                        // payment_intent.succeeded event that handles any business critical
+                        // post-payment actions.
                     }
-                  }
-                
+                }
+
             }}
-            
+
         >
             {form => (
-            <PaymentForm form={form} total={total} error={error} />
-        )}</Formik>
+                <PaymentForm form={form} total={total} error={error} />
+            )}</Formik>
     )
 }
 
@@ -111,26 +111,26 @@ const SearchController = props => {
 const PaymentForm = props => (
     <Form>
         <Input title="Title:" disabled={props.form.isSubmitting} name="title" type="text" />
-        <Input title="category:"  disabled={props.form.isSubmitting}name="category" type="text" />
+        <Input title="category:" disabled={props.form.isSubmitting} name="category" type="text" />
         <Input title="campaign id:" disabled={props.form.isSubmitting} name="campaign_id" type="text" />
         <Input title="days active:" disabled={props.form.isSubmitting} name="days_active" type="text" />
         <Input title="goal:" disabled={props.form.isSubmitting} name="goal" type="text" />
         <Input title="First Name:" disabled={props.form.isSubmitting} name="user_first_name" type="text" />
-         <Input title="Last Name:" disabled={props.form.isSubmitting} name="user_last_name" type="text" />
+        <Input title="Last Name:" disabled={props.form.isSubmitting} name="user_last_name" type="text" />
         <CardElement />
-        {props.error !== "none"?(
-     <bs.Alert  variant="danger">
-        {props.error}
-        </bs.Alert>):<div></div>}
+        {props.error !== "none" ? (
+            <bs.Alert variant="danger">
+                {props.error}
+            </bs.Alert>) : <div></div>}
         <bs.Button className="btn btn-success" type="submit" disabled={props.form.isSubmitting}>
-            {props.form.isSubmitting? (
-                 <span className= "spinner-border spinner-border-sm"
-            role= "status" aria-hidden="true"></span>):<div></div>
-        }
+            {props.form.isSubmitting ? (
+                <span className="spinner-border spinner-border-sm"
+                    role="status" aria-hidden="true"></span>) : <div></div>
+            }
         Search
         </bs.Button>
-       
-                    
+
+
     </Form>
 )
 
