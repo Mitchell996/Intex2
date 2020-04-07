@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
-import * as bs from 'react-bootstrap'
-import AppContext from './context';
+import * as bs from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 //import { Container } from 'react-bootstrap/lib/Tab';
 
 function HeaderContainer(props) {
@@ -12,6 +12,7 @@ function HeaderContainer(props) {
     //setCounter(numInCart);
     //console.log("it's here!");
     //console.log(context.numInCart);
+    
     return (
         <bs.Container  >
             <bs.Navbar collapseOnSelect expand="lg" bg="white" variant="light">
@@ -41,7 +42,7 @@ function HeaderContainer(props) {
                             <bs.NavDropdown.Item href="#action/3.2">My Campaigns</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/newcampaign">New Campaign</bs.NavDropdown.Item>
                             <bs.NavDropdown.Divider />
-                            <bs.NavDropdown.Item href="#action/3.4">My Account</bs.NavDropdown.Item>
+                            <bs.NavDropdown.Item href="/account">My Account</bs.NavDropdown.Item>
                         </bs.NavDropdown>
                     </bs.Nav>
                 </bs.Navbar.Collapse>

@@ -6,6 +6,7 @@ import CampaignDetail from './campaign-detail'
 import HeaderContainer from './header-container'
 import LeftContainer from './left-container'
 import Form from './goFundMeForm'
+import Account from './account'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -38,8 +39,8 @@ function App() {
               <Route path="/newcampaign">
                 <Form/>
               </Route>
-              <Route path="/cart">
-                {/* <Cart /> */}
+              <Route path="/account">
+                <Account/>
               </Route>
               <Route path="/">
                 <Home/>{/* <About /> */}
