@@ -44,6 +44,7 @@ function LeftContainer(props){
     {
         campaignCategories.push(context.campaigns[i].category.title)
     }
+    campaignCategories.push("")
     let categoryNum = countCategories(campaignCategories);
     return(
         

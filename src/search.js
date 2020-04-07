@@ -7,6 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import AppContext from './context';
 import { useHistory } from 'react-router-dom'
+import {RangeInput} from '@appbaseio/reactivesearch'
 
 const stripePromise = loadStripe('pk_test_pFSMf14g5cVZfleYCK0ftIaL00W2M6xQki')
 
@@ -57,43 +58,9 @@ const SearchController = props => {
             validationSchema={FormSchema}
 
             onSubmit={async (values, actions) => {
-
-                console.log('actions', actions)
-                values["total"] = total;
-                values["items"] = items;
-                console.log('submit', values)
-                const result =
-                    await axios.post('/api/search/', values)
-                console.log(result)
-                context.UpdateList(result)
-                /*await new Promise(resolve => {
-                    setTimeout(() => {  // wait 2 seconds, then set the form as "not submitting"
-                        resolve()
-                    }, 2000)
-                })
-                console.log('after the 2 seconds')*/
-                //console.log(result);
-                if (result.error) {
-
-                    console.log(result.error.message)
-                    //error = result.error.message
-                    error = result.error.message
-                    // Show error to your customer (e.g., insufficient funds)
-                    console.log(result.error.message);
-                } else {
-                    // The payment has been processed!
-                    if (result.paymentIntent.status === 'succeeded') {
-                        history.push("/searchedCampaign")
-                        history.go(1)
-
-                        // Show a success message to your customer
-                        // There's a risk of the customer closing the window before callback
-                        // execution. Set up a webhook or plugin to listen for the
-                        // payment_intent.succeeded event that handles any business critical
-                        // post-payment actions.
-                    }
-                }
-
+               
+                
+                
             }}
 
         >
@@ -114,6 +81,15 @@ const PaymentForm = props => (
         <Input title="category:" disabled={props.form.isSubmitting} name="category" type="text" />
         <Input title="campaign id:" disabled={props.form.isSubmitting} name="campaign_id" type="text" />
         <Input title="days active:" disabled={props.form.isSubmitting} name="days_active" type="text" />
+        <RangeInput
+	    componentId="RangeInputComponent"
+	    dataField="rating"
+	    title="goal"
+	    range={{
+		start: 500,
+		end: 50000,
+	}}
+/>
         <Input title="goal:" disabled={props.form.isSubmitting} name="goal" type="text" />
         <Input title="First Name:" disabled={props.form.isSubmitting} name="user_first_name" type="text" />
         <Input title="Last Name:" disabled={props.form.isSubmitting} name="user_last_name" type="text" />
