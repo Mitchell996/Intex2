@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {/* useState */} from 'react'
 import * as bs from 'react-bootstrap'
 
 import CampaignCard from './campaign-card'
@@ -54,10 +54,7 @@ function SearchedCampaign(props) {
             <bs.Row noGutters style={{ padding: "6rem 0" }}>
 
                 <div className="text-center mt-5">
-                    {/* 
-                list the objects, but make sure that we don't try and make a card for 
-                a campaign that isn't there.
-            */}
+                    {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
                     {Object.values(organizedCampaigns).map((campaign) => {
                         return (<bs.ListGroup key={campaign[0] + count++} horizontal>
                             <bs.Col md="3">
@@ -91,61 +88,3 @@ function SearchedCampaign(props) {
 }
 
 export default SearchedCampaign;
-
-/*
-************************
-NOTE: So idk if this is easier or more simple or just different, but for the home.js I organized by category and then I called the card from there
-Basically this is just another way we could do this if we end up running into errors or something idk
-************************
-*/
-
-// import React from 'react';
-// import * as bs from 'react-bootstrap';
-// import './index.scss';
-// import CAMPAIGNS from './campaigns'
-// import CampaignCard from './campaign-card.js';
-// import {useParams} from "react-router-dom";
-// //import AppContext from './context'
-
-// function Home(props){
-//     let { category }  = useParams();
-//     console.log('Category:',category);
-//     //const context = React.useContext(AppContext)
-
-//     if (category === undefined){
-//         return(
-//             <>      
-//                 <bs.Container fluid >
-//                     <bs.Row noGutters style={{padding: "2rem 0"}}>
-//                         {Object.values(CAMPAIGNS).map((c) => {
-//                             return (
-//                                 <CampaignCard campaign={c} key={c.campaign_id}/> 
-//                             ) 
-//                         })} 
-//                     </bs.Row>
-//                 </bs.Container>
-//             </>
-//         ) 
-//     }
-//     else {
-//         return(
-//             <bs.Container>
-//                 <bs.Row noGutters style={{padding: "2rem 0"}}>
-//                     {Object.values(CAMPAIGNS).map(c => {
-
-//                         if (c.category === parseInt(category)) {
-//                             return (
-//                                 <CampaignCard campaign={c} key={c.campaign_id}/>
-//                             )
-//                         }
-//                         else{
-//                             return(null)
-//                         }
-//                     })} 
-//                 </bs.Row>
-//             </bs.Container>
-//         )
-//     } 
-// }
-
-// export default Home;

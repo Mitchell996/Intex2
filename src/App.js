@@ -5,8 +5,9 @@ import Home from './home';
 //import MyHome from './myHome';
 import CampaignDetail from './campaign-detail'
 import HeaderContainer from './header-container'
-import LeftContainer from './left-container'
+//import LeftContainer from './left-container'
 import Form from './goFundMeForm'
+import Prediction from './prediction'
 import Account from './account'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
@@ -55,6 +56,7 @@ function App() {
               <Route path="/campaign/:campaign">
                 <CampaignDetail />
               </Route>
+
               <Route path="/searchedCampaign">
                 <SearchedCampaign />
               </Route>
@@ -63,8 +65,12 @@ function App() {
                 <Search />
               </Route>
 
-              <Route path="/newcampaign">
+              <Route path="/predictmycampaign">
                 <Form />
+              </Route>
+
+              <Route path="/prediction">
+                <Prediction />
               </Route>
 
               <Route path="/account">

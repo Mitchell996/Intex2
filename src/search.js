@@ -58,7 +58,7 @@ const FormSchema = Yup.object().shape({
         .min(2, "Too short!"),
     user_last_name: Yup.string()
         .min(5, "Too Short!")
-        .max(7, "Too Long!"),
+        .max(17, "Too Long!"),
 });
 
 const PaymentForm = props => (
