@@ -20,7 +20,7 @@ import Callback from './callback';
 import Auth from './auth';
 
 function App() {
-  
+
   // const auth = new Auth();
 
   // const handleAuthentication = (nextState, replace) => {
@@ -44,7 +44,9 @@ function App() {
           <Col md="8">
             <Switch>
 
-              <Route path="/home" /> {/* render={(props) => <MyHome auth={auth} {...props} />}  */}
+              <Route path="/home" > {/* render={(props) => <MyHome auth={auth} {...props} />}  */}
+                <Home />
+              </Route>
 
               <Route path="/home/categories/:category">
                 <Home />
@@ -54,7 +56,7 @@ function App() {
                 <CampaignDetail />
               </Route>
               <Route path="/searchedCampaign">
-                  <SearchedCampaign />
+                <SearchedCampaign />
               </Route>
 
               <Route path="/search">
@@ -69,28 +71,30 @@ function App() {
                 <Account />
               </Route>
 
-              <Route path="/callback"  />
+              <Route path="/callback" />
               {/* render={(props) => {
                 handleAuthentication(props);
                 return <Callback {...props} />
               }} */}
 
-              <Route path="/"  /> {/* render={(props) => <MyHome auth={auth} {...props} />} */}
-
+              <Route path="/"> {/* render={(props) => <MyHome auth={auth} {...props} />} */}
+                <Home />
+              </Route>
+              
             </Switch>
           </Col>
-          {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
+        {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
               <RightContainer />
            </Col>*/}
         </Row>
-        <Row noGutters className="flexGrow-0 flex-shrink-0">
-          <Col className="px-3 py-2">
-            {/* <FooterContainer /> */}
-          </Col>
-        </Row>
+      <Row noGutters className="flexGrow-0 flex-shrink-0">
+        <Col className="px-3 py-2">
+          {/* <FooterContainer /> */}
+        </Col>
+      </Row>
       </Container>
 
-    </Router>
+    </Router >
   );
 }
 

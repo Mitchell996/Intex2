@@ -15,7 +15,7 @@ export default function ProductDetail(props) {
     if (!CAMPAIGNS[match.params.campaign_id]) {
         return (
             <bs.Container>
-                <h3 className="m-4 text-center">Container not found.</h3>
+                <h3 className="m-4 text-center">Campaign not found.</h3>
             </bs.Container>
         )
     }
