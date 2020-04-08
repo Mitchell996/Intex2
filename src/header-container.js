@@ -19,14 +19,6 @@ function HeaderContainer(props) {
                 <Link to="/">
                     <bs.Image src="/favicon.png" height="80rem"></bs.Image>
                 </Link>
-                {/* <img
-                    alt=""
-                    src={`${process.env.PUBLIC_URL}/logo192.png`}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                />{' '} */}
-
                 <bs.Navbar.Brand href="/">  GoFundMe </bs.Navbar.Brand>
                 <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <bs.Navbar.Collapse id="basic-navbar-nav">
@@ -37,8 +29,8 @@ function HeaderContainer(props) {
                     <bs.Nav>
                         <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link>
                         <bs.NavDropdown title="Welcome, User" id="basic-nav-dropdown">
-                            <bs.NavDropdown.Item href="#action/3.1">Campaigns</bs.NavDropdown.Item>
-                            <bs.NavDropdown.Item href="#action/3.2">My Campaigns</bs.NavDropdown.Item>
+                            <bs.NavDropdown.Item href="/">Campaigns</bs.NavDropdown.Item>
+                            <bs.NavDropdown.Item href="/">My Campaigns</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/newcampaign">New Campaign</bs.NavDropdown.Item>
                             <bs.NavDropdown.Divider />
                             <bs.NavDropdown.Item href="/account">Log Out</bs.NavDropdown.Item>

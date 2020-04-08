@@ -4,10 +4,10 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppProvider from './context-provider';
-import App from './App';
+//import App from './App';
 
 //NOTE: Okay, our problem at the moment is the authentication is in the routes so it works with <App/> and not <AppProvider/>
-ReactDOM.render(<AppProvider />, document.getElementById("root"));
+ReactDOM.render(<AppProvider/>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,3 +1,5 @@
+//NOTE: was working but then froze pages so they timed out... Gotta figure something else out
+
 import auth0 from 'auth0-js';
 
 import history from './utils/history';
@@ -6,9 +8,9 @@ export default class Auth {
   
   auth0 = new auth0.WebAuth({
     domain: 'dev-group2-08intex.auth0.com',
-    clientID: 'dZPG7Ly3I04xGRNIZiRhGPC2mSwferdC',
+    clientID: 'p2VtyROfcYSaHTJ8a01iWXogChdPjmzd',
             //will need to change the domain below to our project domain once it is hosted live 
-    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : '',
+    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'http://localhost:3000/',
     audience: 'https://dev-group2-08intex.auth0.com/userinfo', //not sure if this page is right either 
     responseType: 'token id_token',
     scope: 'openid'
