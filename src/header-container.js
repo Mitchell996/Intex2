@@ -3,16 +3,7 @@ import './App.scss';
 import * as bs from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-//import { Container } from 'react-bootstrap/lib/Tab';
-
-function HeaderContainer(props) {
-    //const context = React.useContext(AppContext);
-    //let numInCart = context.numInCart;
-    //const [count, setCounter] = useState(0);
-    //setCounter(numInCart);
-    //console.log("it's here!");
-    //console.log(context.numInCart);
-    
+function HeaderContainer(props) { 
     return (
         <bs.Container  >
             <bs.Navbar collapseOnSelect expand="lg" bg="white" variant="light">
@@ -27,7 +18,7 @@ function HeaderContainer(props) {
                         <Link to="/search" className="nav-link">Search</Link>
                     </bs.Nav>
                     <bs.Nav>
-                        <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link>
+                        {/* <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link> */}
                         <bs.NavDropdown title="Welcome, User" id="basic-nav-dropdown">
                             <bs.NavDropdown.Item href="/">Campaigns</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/search">Search</bs.NavDropdown.Item>
