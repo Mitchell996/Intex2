@@ -13,6 +13,7 @@ import Container from 'react-bootstrap/Container'
 import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import SearchedCampaign from './searchedCampaign'
 //import { useAuth0 } from "./react-auth0-spa";
 import history from './utils/history';
 import Callback from './callback';
@@ -24,13 +25,13 @@ function App() {
   // if (loading) {
   //   return <div>Loading...</div>;
   // }
-  const auth = new Auth();
+  //const auth = new Auth();
 
-  const handleAuthentication = (nextState, replace) => {
+  /*const handleAuthentication = (nextState, replace) => {
     if (/access_token|id_token|error/.test(nextState.location.hash)) {
       auth.handleAuthentication();
     }
-  }
+  }*/
 
   return (
     <Router history={history} component={MyHome}>
@@ -47,7 +48,9 @@ function App() {
           <Col md="8">
             <Switch>
 
-              <Route path="/home" render={(props) => <MyHome auth={auth} {...props} />} />
+              <Route path="/home" /*render={(props) => <MyHome auth={auth} {...props} />} */>
+                <Home />
+                </Route>
 
               <Route path="/home/categories/:category">
                 <Home />
@@ -56,40 +59,28 @@ function App() {
               <Route path="/campaign/:campaign">
                 <CampaignDetail />
               </Route>
-<<<<<<< HEAD
-              <Route path="/home">
-                <Home />
+              <Route path="/searchedCampaign">
+                  <SearchedCampaign />
               </Route>
-=======
 
-
->>>>>>> 35daeb4d626b91041d8f29499ee40bd42e7adc79
               <Route path="/search">
                 <Search />
               </Route>
-<<<<<<< HEAD
-              <Route path="/newcampaign">
-                <Form/>
-              </Route>
-              <Route path="/cart">
-                {/* <Cart /> */}
-=======
 
               <Route path="/newcampaign">
                 <Form />
->>>>>>> 35daeb4d626b91041d8f29499ee40bd42e7adc79
               </Route>
 
               <Route path="/account">
                 <Account />
               </Route>
 
-              <Route path="/callback" render={(props) => {
-                handleAuthentication(props);
+             {/*} <Route path="/callback" render={(props) => {
+                //handleAuthentication(props);
                 return <Callback {...props} />
-              }} />
+              }} />*/}
 
-              <Route path="/" render={(props) => <MyHome auth={auth} {...props} />} />
+              <Route path="/" /*render={(props) => <MyHome auth={auth} {...props} />}*/ />
 
             </Switch>
           </Col>

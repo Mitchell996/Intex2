@@ -17,7 +17,7 @@ const SearchController = props => {
     return (
         <Formik
         initialValues={{
-            goal: "1000"
+            
         }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -31,16 +31,12 @@ const SearchController = props => {
                //await axios.post('/api/sale/', values)
               
                
-                
+                await context.searchResults(values);
                 
                     
-                history.push("/receipt")
+                history.push("/searchedCampaign")
                 history.go(1)
 
-                      
-                    
-                  
-                
             }}
             
         >
@@ -76,7 +72,7 @@ const PaymentForm = props => (
         <Input title="First Name:"  name="user_first_name" type="text" />
         <Input title="Last Name:"  name="user_last_name" type="text" />
         <p>goal</p>
-        <Field as="select" name="goal" placeholder="goal">
+        <Field  as="select" name="goal" placeholder="goal">
             <option value={null}>don't care</option>
             <option value={1000}>Less than 1000</option>
             <option value={10000}>1000-10000</option>
@@ -90,24 +86,19 @@ const PaymentForm = props => (
             <option value={10001}>Greater than 10000</option>
         </Field>
         <p>number of donators</p>
-        <Field  as="select" name="donators" placeholder="donations">
+        <Field  as="select" name="donators" placeholder="donators">
             <option value={null}>don't care</option>
             <option value={10}>10 or less</option>
             <option value={50}>less than 50</option>
             <option value={51}>greater than 50</option>
         </Field>
         <p>Has beneficiary</p>
-        <Field  as="select" name="beneficiary" placeholder="donations">
+        <Field  as="select" name="beneficiary" placeholder="beneficiary">
             <option value={null}>don't care</option>
             <option value={true}>Has beneficiary</option>
             <option value={false}>Doesn't have beneficiary</option>
         </Field>
-        
-      
-            
-        
-        
-            
+        <br></br>    
         
         {props.error !== "none" ? (
             <bs.Alert variant="danger">

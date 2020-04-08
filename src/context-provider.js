@@ -10,8 +10,12 @@ export default class AppProvider extends React.Component {
 
     constructor(props) {
         super(props)
+        this.actions={
+
+        }
         this.actions = {
             updateList: this.updateList,
+            searchResults: this.searchResults,
         }
 
         this.state = {
@@ -22,81 +26,81 @@ export default class AppProvider extends React.Component {
     }
 
     searchResults = (values) =>{
-
-        for(const camps of this.state.campaigns){
+        console.log("in searchResults: ", this.state.campaignDisplays);
+        //this.state.campaignDisplays = {};
+        let searchedCampaigns ={};
+        Object.values(this.state.campaigns).map((camps)=>{
+            let use = true;
             if(values.title != null && camps.title !=values.title){
-                continue;
+                use = false;
             }
             if(values.campaign_id != null && camps.campaign_id !=values.campaign_id){
-                continue;
+                use = false;
             }
             if(values.user_first_name != null && camps.user_first_name !=values.user_first_name){
-                continue;
+                use = false;
             }
             if(values.user_last_name != null && camps.user_last_name !=values.user_last_name){
-                continue;
+                use = false;
             }
             if(values.goal != null ){
                 if(values.goal == 1000 && camps.goal > 1000){
-                    continue;
+                    use = false;
                 }
                 else if(values.goal == 10000 && (camps.goal < 1000||camps.goal > 10000)){
-                    continue;
+                    use = false;
                 }
                 else if(values.goal == 10001 && camps.goal < 10001){
-                    continue;
+                    use = false;
                 }
             }
             if(values.donations != null ){
                 if(values.donations == 1000 && camps.current_amount > 1000){
-                    continue;
+                    use = false;
                 }
                 else if(values.donations == 10000 && (camps.current_amount < 1000||camps.current_amount > 10000)){
-                    continue;
+                    use = false;
                 }
                 else if(values.donations == 10001 && camps.current_amount < 10001){
-                    continue;
+                    use = false;
                 }
             }
             if(values.donators != null ){
                 if(values.donators == 10 && camps.donators > 10){
-                    continue;
+                    use = false;
                 }
                 else if(values.donators == 50 && (camps.donators < 10||camps.current_amount > 50)){
-                    continue;
+                    use = false;
                 }
                 else if(values.donators == 51 && camps.donators < 51){
-                    continue;
+                    use = false;
                 }
             }
             if(values.beneficiary != null ){
                 if(values.beneficiary == true && camps.has_beneficiary == false){
-                    continue;
+                    use = false;
                 }
                 else if(values.beneficiary == false && camps.has_beneficiary == true){
-                    continue;
+                    use = false;
                 }
 
             }
-            
-            this.state.campaignDisplays.push(camps);
+            if(use == true){
+                console.log("it happened!")
+            let id = camps.campaign_id
+            searchedCampaigns[id] = camps;
+            //this.state.campaignDisplays[id]= camps;
+            }
 
 
-        }
-
-    }
-
-    updateList = (result) => {
-
-        if (result !== 'undefined') {
-            this.state.campaignDisplays = result;
-        }
-        else {
-            console.log("error in result");
-            this.state.campaignDisplays = this.state.campaigns;
-        }
+        })
+        console.log("what remains",this.state.campaignDisplays);
+        this.setState({
+            campaignDisplays: searchedCampaigns
+        })
 
     }
+
 
 
     render() {
