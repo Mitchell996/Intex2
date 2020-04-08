@@ -27,7 +27,7 @@ function HeaderContainer(props) {
                     className="d-inline-block align-top"
                 />{' '} */}
 
-                <bs.Navbar.Brand href="#home">  GoFundMe </bs.Navbar.Brand>
+                <bs.Navbar.Brand href="/">  GoFundMe </bs.Navbar.Brand>
                 <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <bs.Navbar.Collapse id="basic-navbar-nav">
                     <bs.Nav className="mr-auto">
