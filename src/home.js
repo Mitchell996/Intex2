@@ -9,12 +9,12 @@ function organize(name, campaigns) {
     if (name != null) {
         campaigns = campaigns.filter((val) => val.category.title === name)
     }
-   /* if(charitySort==1){
-        campaigns = campaigns.filter((val) => val.is_charity===1)
-    }
-    else if(charitySort==2){
-        campaigns = campaigns.filter((val) => val.is_charity===2)
-    }*/
+    /* if(charitySort==1){
+         campaigns = campaigns.filter((val) => val.is_charity===1)
+     }
+     else if(charitySort==2){
+         campaigns = campaigns.filter((val) => val.is_charity===2)
+     }*/
     let campaignHolder = [];
     console.log("the campaigns:", campaigns);
     //first loop is going through every campaign
@@ -37,41 +37,41 @@ function Home(props) {
     //const [charitySort, setCharitySort] = useState(0);
     console.log("Why is there no context?", context.campaigns);
     for (let i = 1; i < (Object.keys(context.campaigns).length) + 1; i++) {
-        campaigns.push(context.campaigns[Object.keys(context.campaigns)[i-1]])
+        campaigns.push(context.campaigns[Object.keys(context.campaigns)[i - 1]])
     }
     console.log("what is it? ", campaigns);
     let { category } = useParams();
-    
+
     let organizedCampaigns = organize(category, campaigns);
-    console.log("what do we have here?",organizedCampaigns);
+    console.log("what do we have here?", organizedCampaigns);
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
             <h2 className="my-4 text-center">Campaigns</h2>
             <bs.Row noGutters style={{ padding: "3rem 0" }}>
-                
-                <div className="text-center mt-5">
-                    {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
-                    {Object.values(organizedCampaigns).map((campaign) => {
-                        return (<bs.ListGroup key={campaign[0] + count++} horizontal>
-                            <bs.Col md="3">
-                                <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
-                            </bs.Col>
-                            {campaign.length > 1 ?
-                                (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
-                            {campaign.length > 2 ?
-                                (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
-                            {campaign.length > 3 ?
-                                (<bs.Col md="3">
-                                    <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
-                        </bs.ListGroup>)
-                    })}
-                </div>
+
+            <div>
+                {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
+                {Object.values(organizedCampaigns).map((campaign) => {
+                    return (<bs.ListGroup key={campaign[0] + count++} horizontal>
+                        <bs.Col md="3">
+                            <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
+                        </bs.Col>
+                        {campaign.length > 1 ?
+                            (<bs.Col md="3">
+                                <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
+                            </bs.Col>) : <div></div>}
+                        {campaign.length > 2 ?
+                            (<bs.Col md="3">
+                                <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
+                            </bs.Col>) : <div></div>}
+                        {campaign.length > 3 ?
+                            (<bs.Col md="3">
+                                <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
+                            </bs.Col>) : <div></div>}
+                    </bs.ListGroup>)
+                })}
+            </div>
 
             </bs.Row>
             <bs.Row noGutters style={{ padding: "4rem 0" }} className="bg-info shadow">

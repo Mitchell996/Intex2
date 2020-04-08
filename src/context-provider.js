@@ -10,7 +10,7 @@ export default class AppProvider extends React.Component {
 
     constructor(props) {
         super(props)
-        this.actions={
+        this.actions = {
 
         }
         this.actions = {
@@ -25,76 +25,76 @@ export default class AppProvider extends React.Component {
         }
     }
 
-    searchResults = (values) =>{
+    searchResults = (values) => {
         console.log("in searchResults: ", this.state.campaignDisplays);
         //this.state.campaignDisplays = {};
-        let searchedCampaigns ={};
-        Object.values(this.state.campaigns).map((camps)=>{
+        let searchedCampaigns = {};
+        Object.values(this.state.campaigns).map((camps) => {
             let use = true;
-            if(values.title !== null && camps.title !==values.title){
+            if (values.title !== null && camps.title !== values.title) {
                 use = false;
             }
-            if(values.campaign_id !== null && camps.campaign_id !==values.campaign_id){
+            if (values.campaign_id !== null && camps.campaign_id !== values.campaign_id) {
                 use = false;
             }
-            if(values.user_first_name !== null && camps.user_first_name !==values.user_first_name){
+            if (values.user_first_name !== null && camps.user_first_name !== values.user_first_name) {
                 use = false;
             }
-            if(values.user_last_name !== null && camps.user_last_name !==values.user_last_name){
+            if (values.user_last_name !== null && camps.user_last_name !== values.user_last_name) {
                 use = false;
             }
-            if(values.goal !== null ){
-                if(values.goal === 1000 && camps.goal > 1000){
+            if (values.goal !== null) {
+                if (values.goal === 1000 && camps.goal > 1000) {
                     use = false;
                 }
-                else if(values.goal === 10000 && (camps.goal < 1000||camps.goal > 10000)){
+                else if (values.goal === 10000 && (camps.goal < 1000 || camps.goal > 10000)) {
                     use = false;
                 }
-                else if(values.goal === 10001 && camps.goal < 10001){
-                    use = false;
-                }
-            }
-            if(values.donations !== null ){
-                if(values.donations === 1000 && camps.current_amount > 1000){
-                    use = false;
-                }
-                else if(values.donations === 10000 && (camps.current_amount < 1000||camps.current_amount > 10000)){
-                    use = false;
-                }
-                else if(values.donations === 10001 && camps.current_amount < 10001){
+                else if (values.goal === 10001 && camps.goal < 10001) {
                     use = false;
                 }
             }
-            if(values.donators !== null ){
-                if(values.donators === 10 && camps.donators > 10){
+            if (values.donations !== null) {
+                if (values.donations === 1000 && camps.current_amount > 1000) {
                     use = false;
                 }
-                else if(values.donators === 50 && (camps.donators < 10||camps.current_amount > 50)){
+                else if (values.donations === 10000 && (camps.current_amount < 1000 || camps.current_amount > 10000)) {
                     use = false;
                 }
-                else if(values.donators === 51 && camps.donators < 51){
+                else if (values.donations === 10001 && camps.current_amount < 10001) {
                     use = false;
                 }
             }
-            if(values.beneficiary !== null ){
-                if(values.beneficiary === true && camps.has_beneficiary === false){
+            if (values.donators !== null) {
+                if (values.donators === 10 && camps.donators > 10) {
                     use = false;
                 }
-                else if(values.beneficiary === false && camps.has_beneficiary === true){
+                else if (values.donators === 50 && (camps.donators < 10 || camps.current_amount > 50)) {
+                    use = false;
+                }
+                else if (values.donators === 51 && camps.donators < 51) {
+                    use = false;
+                }
+            }
+            if (values.beneficiary !== null) {
+                if (values.beneficiary === true && camps.has_beneficiary === false) {
+                    use = false;
+                }
+                else if (values.beneficiary === false && camps.has_beneficiary === true) {
                     use = false;
                 }
 
             }
-            if(use === true){
+            if (use === true) {
                 console.log("it happened!")
-            let id = camps.campaign_id
-            searchedCampaigns[id] = camps;
-            //this.state.campaignDisplays[id]= camps;
+                let id = camps.campaign_id
+                searchedCampaigns[id] = camps;
+                //this.state.campaignDisplays[id]= camps;
             }
 
 
         })
-        console.log("what remains",this.state.campaignDisplays);
+        console.log("what remains", this.state.campaignDisplays);
         this.setState({
             campaignDisplays: searchedCampaigns
         })
@@ -106,7 +106,7 @@ export default class AppProvider extends React.Component {
     render() {
         return (
             <AppContext.Provider value={{ ...this.state, ...this.actions }}>
-                    <App />
+                <App />
             </AppContext.Provider>
         )
     }
@@ -160,7 +160,73 @@ export default class AppProvider extends React.Component {
                     "charity_valid": true,
                     "charity_npo_id": "4534",
                     "charity_name": "American Meat Science Association"
-                }
+                },
+                {
+                    "campaign_id": 40688092,
+                    "category": "unknown",
+                    "currencycode": "EUR",
+                    "current_amount": 0,
+                    "goal": 1000,
+                    "days_active": 2,
+                    "title": "Anzola-Lontani per essere vicini - COVID19",
+                    "description": "  http://www.comune.anzoladellemilia.bo.it/   In un momento importante e difficile come quello che ci sta toccando con il 'Coronavirus' Ã¨ importante sostenerci ed essere vicini, seppur fisicamente lontani perchÃ rispettosi delle norme. Ho pensato a questa raccolta fondi destinata al mio comune: 'Anzola Dell'Emilia'. CiÃ² che verrÃ  raccolto sarÃ  devoluto interamente all'ente, questi a sua volta potrÃ  utilizzare le risorse a sostegno del territorio, delle famiglie, delle aziende ecc... che con difficoltÃ  (e coraggio) affrontano e vivono una realtÃ  mai vista. Siamo piccoli (11.000 abitanti circa) ma non vogliamo cedere e soprattutto non vogliamo gravare su Regione e Governo. Per questi motivi: chi puÃ² e lo desidera DONI, basta poco, il costo di un caffÃ¨ che adesso Ã¨ meglio non uscire a bere. Grazie immensamente a chi mi, /CI, aiuterÃ  in questo progetto. Grazie ancora!!! -Michela",
+                    "has_beneficiary": false,
+                    "user_first_name": "Michela",
+                    "user_last_name": "Ferrari",
+                    "status": 1,
+                    "deactivated": false,
+                    "location_city": "",
+                    "location_zip": "40011 anzola",
+                    "location_country": "IT",
+                    "is_charity": false,
+                    "charity_valid": false,
+                    "charity_npo_id": "",
+                    "charity_name": ""
+                },
+                {
+                    "campaign_id": 34791666,
+                    "category": "unknown",
+                    "currencycode": "USD",
+                    "current_amount": 3720,
+                    "goal": 25000,
+                    "days_active": 479,
+                    "title": "COVID-19 Emergency Outreach &Relief Fund for Trans",
+                    "description": "$10, $30, $50, $100 Up,     This is a urgent request for your donations   support due to this nation   International  COVID-19  aka coronavirus  Emergency Epidemic, knowing that your donations   support will help save the lives of our most vulnerable Transgender Community.  Our Nonprofit Organization is Strictly dedicated to the Safety, Security, Protection   Well-being of Transgender Individuals, ages 18, 25 , 65   Up. , By Supporting our Nonprofit Organization is saving the lives of the world most vulnerable.  ( Global transgender safety tasks force. USA inc (EIN 36-4910216 ) . your donation will help us respond Quickly in this  COVID-19  epidemic to our most vulnerable Trans youth, Trans Elders,  Trans Young adults  and keep our office doors open. Respectfully: Grace Lawrence. www.globaltrans-safetytasksforce.org",
+                    "has_beneficiary": false,
+                    "user_first_name": "Grace",
+                    "user_last_name": "F Lawrence",
+                    "status": 1,
+                    "deactivated": false,
+                    "location_city": "Sacramento, CA",
+                    "location_zip": "95833",
+                    "location_country": "US",
+                    "is_charity": false,
+                    "charity_valid": false,
+                    "charity_npo_id": "",
+                    "charity_name": ""
+                },
+                {
+                    "campaign_id": 42824334,
+                    "category": "unknown",
+                    "currencycode": "EUR",
+                    "current_amount": 0,
+                    "goal": 10000,
+                    "days_active": 2,
+                    "title": "#coronavirus DPi per il ROE Protezione Civile",
+                    "description": "Il R.O.E., Raggruppamento Operativo Emergenze Colonna Mobile Nazionale O.n.l.u.s., Ã¨ una struttura operativa del Servizio Nazionale della PROTEZIONE CIVILE che sta fronteggiando, con i suoi 150 operatori volontari, lâ€™emergenza Coronavirus - Covid19 a Roma e nel Lazio attraverso:  Â·Â Â Â Â Â Â Â Â  Presidi presso Stazioni, Porti ed Aeroporti 24 ore su 24;  Â·Â Â Â Â Â Â Â Â  Supporto alle Strutture Ospedaliere con trasporto di materiale sanitario;  Â·Â Â Â Â Â Â Â Â  Fornitura ed allestimento di attrezzatura campale (tende, tensostrutture, lettini) presso gli Ospedali in emergenza.  Per fare tutto questo nel migliore dei modi e in maniera sempre piÃ¹ incisiva Ã¨ necessario raccogliere fondi destinati a:  Â·Â Â Â Â Â Â Â Â  Acquistare i dispositivi di protezione individuale per i propri volontari;  Â·Â Â Â Â Â Â Â Â  Acquistare tende, tensostrutture, effetti letterecci e letti;  Â·Â Â Â Â Â Â Â Â  Acquistare mezzi per il supporto logistico degli Ospedali;  Quello che potrete fare anche con un piccolo gesto Vi renderÃ  parte attiva nellâ€™aiutare, insieme a noi e a tutti gli operatori coinvolti volontari e non, lâ€™Italia ad uscire da questo difficile momento.  Grazie per quello che farete.  Le donazioni saranno certificate e scaricabili sul 730 ed inoltre tutti gli acquisti saranno di volta in volta pubblicati con le relative fatture.",
+                    "has_beneficiary": false,
+                    "user_first_name": "Roe",
+                    "user_last_name": "Protezione Civile",
+                    "status": 1,
+                    "deactivated": false,
+                    "location_city": "Roma, LZ, Italy",
+                    "location_zip": "139",
+                    "location_country": "IT",
+                    "is_charity": false,
+                    "charity_valid": false,
+                    "charity_npo_id": "",
+                    "charity_name": ""
+                },
             ]
         }
         //console.log("hello there!")

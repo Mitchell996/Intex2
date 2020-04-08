@@ -17,7 +17,7 @@ const FormController = props => {
             initialValues={{
                 category: "unknown",
                 currencycode: "USD",
-                goal: 5000.00,
+                goal: 5000,
                 title: "Look! An interesting title.",
                 description: "This is my fun description.",
                 has_beneficiary: false,
@@ -26,8 +26,8 @@ const FormController = props => {
                 location_city: "Provo, UT",
                 location_zip: 84604,
                 location_country: "US",
-                is_charity: true,
-                charity_name: 'Cadies Charity for Awesome People',
+                is_charity: false,
+                charity_name: '',
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -115,20 +115,30 @@ const CampaignForm = props => (
         <bs.Container>
             <bs.Row>
                 <bs.Col>
-                    <bs.Card.Header as="h5">Create a New Campaign</bs.Card.Header>
+                    <bs.Card.Header as="h5">Predict Your Campaign's Success</bs.Card.Header>
                     <bs.Card.Body>
-                        <Input title="Category:" name="category" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Type of Currency:" name="currencycode" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Your Goal:" name="goal" type="number" disabled={props.form.isSubmitting} />
-                        <Input title="Campaign Title:" name="title" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Description:" name="description" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Do you have a beneficiary? true or false:" name="has_beneficiary" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="First Name:" name="user_first_name" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Last Name:" name="user_last_name" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Campaign Location:" name="location_city" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Campaign Country:" name="location_country" type="text" disabled={props.form.isSubmitting} />
-                        <Input title="Campaign Zipcode:" name="location_zip" type="number" disabled={props.form.isSubmitting} />
-                        <Input title="Are you a charity? true or false:" name="is_charity" type="text" disabled={props.form.isSubmitting} />
+                        <Input title="Category:" name="category" type="text" placeholder="unknown" disabled={props.form.isSubmitting} />
+                        <Input title="Type of Currency:" name="currencycode" placeholder="USD" type="text" disabled={props.form.isSubmitting} />
+                        <Input title="Your Goal:" name="goal" type="number" placeholder="1000" disabled={props.form.isSubmitting} />
+                        <Input title="Campaign Title:" name="title" type="text" placeholder="I Need Financial Assistance" disabled={props.form.isSubmitting} />
+                        <Input title="Description:" name="description" type="text" placeholder="Due to some recent health problems, I need financial assistance..." disabled={props.form.isSubmitting} />
+                        <p>Do you have a beneficiary?</p>
+                        <Field as="select" name="has_beneficiary" >
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </Field>
+                        <p></p>
+                        <Input title="First Name:" name="user_first_name" type="text" placeholder="John" disabled={props.form.isSubmitting} />
+                        <Input title="Last Name:" name="user_last_name" type="text" placeholder="Doe" disabled={props.form.isSubmitting} />
+                        <Input title="Campaign Location:" name="location_city" type="text" placeholder="Provo, UT" disabled={props.form.isSubmitting} />
+                        <Input title="Campaign Country:" name="location_country" type="text" placeholder="US" disabled={props.form.isSubmitting} />
+                        <Input title="Campaign Zipcode:" name="location_zip" type="number" placeholder="84606" disabled={props.form.isSubmitting} />
+                        <p>Are you a charity?</p>
+                        <Field as="select" name="is_charity" >
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </Field>
+                        <p></p>
                         <Input title="Charity Name:" name="charity_name" type="text" disabled={props.form.isSubmitting} />
                     </bs.Card.Body>
                     <bs.Button
@@ -140,7 +150,7 @@ const CampaignForm = props => (
                             <bs.Spinner animation="border"
                                 variant="secondary"
                                 size="sm" /> : null}
-                        Create Campaign
+                        Predict Campaign
                     </bs.Button>
                 </bs.Col>
             </bs.Row>

@@ -66,7 +66,7 @@ const PaymentForm = props => (
         <bs.Container>
             <bs.Row>
                 <bs.Col>
-                    <bs.Card.Header>Search for a Campaign</bs.Card.Header>
+                    <bs.Card.Header as="h5">Search for a Campaign</bs.Card.Header>
                     <bs.Card.Body>
                         <Input title="Title:" name="title" type="text" />
                         <Input title="Campaign ID:" name="campaign_id" type="text" />

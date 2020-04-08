@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function CampaignCard(campaign) {
 
   return (
-    <bs.Card style={{ width: '10rem' }}>
+    <bs.Card>
       <bs.Card.Body>
         <bs.Card.Title>{campaign.campaign.title}</bs.Card.Title>
         <bs.Card.Text>
