@@ -36,16 +36,11 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
-<<<<<<< HEAD
               <Route path="/search">
                   <Search />
               </Route>
-              <Route path="/checkout-starter">
-                {/* <Checkoutstarter /> */}
-=======
               <Route path="/newcampaign">
                 <Form/>
->>>>>>> b6a52f251566d6d97daa520eee5e725089963218
               </Route>
               <Route path="/cart">
                 {/* <Cart /> */}

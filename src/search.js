@@ -77,21 +77,34 @@ const PaymentForm = props => (
         <Input title="Last Name:"  name="user_last_name" type="text" />
         <p>goal</p>
         <Field as="select" name="goal" placeholder="goal">
+            <option value={null}>don't care</option>
             <option value={1000}>Less than 1000</option>
             <option value={10000}>1000-10000</option>
             <option value={10001}>Greater than 10000</option>
         </Field>
       <p>donation</p>
         <Field  as="select" name="donations" placeholder="donations">
+            <option value={null}>don't care</option>
             <option value={1000}>Less than 1000</option>
             <option value={10000}>1000-10000</option>
             <option value={10001}>Greater than 10000</option>
         </Field>
-        <Field  as="select" name="donations" placeholder="donations">
-            <option value={1000}>Less than 1000</option>
-            <option value={10000}>1000-10000</option>
-            <option value={10001}>Greater than 10000</option>
+        <p>number of donators</p>
+        <Field  as="select" name="donators" placeholder="donations">
+            <option value={null}>don't care</option>
+            <option value={10}>10 or less</option>
+            <option value={50}>less than 50</option>
+            <option value={51}>greater than 50</option>
         </Field>
+        <p>Has beneficiary</p>
+        <Field  as="select" name="beneficiary" placeholder="donations">
+            <option value={null}>don't care</option>
+            <option value={true}>Has beneficiary</option>
+            <option value={false}>Doesn't have beneficiary</option>
+        </Field>
+        
+      
+            
         
         
             
