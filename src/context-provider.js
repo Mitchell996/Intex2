@@ -31,61 +31,61 @@ export default class AppProvider extends React.Component {
         let searchedCampaigns ={};
         Object.values(this.state.campaigns).map((camps)=>{
             let use = true;
-            if(values.title != null && camps.title !=values.title){
+            if(values.title !== null && camps.title !==values.title){
                 use = false;
             }
-            if(values.campaign_id != null && camps.campaign_id !=values.campaign_id){
+            if(values.campaign_id !== null && camps.campaign_id !==values.campaign_id){
                 use = false;
             }
-            if(values.user_first_name != null && camps.user_first_name !=values.user_first_name){
+            if(values.user_first_name !== null && camps.user_first_name !==values.user_first_name){
                 use = false;
             }
-            if(values.user_last_name != null && camps.user_last_name !=values.user_last_name){
+            if(values.user_last_name !== null && camps.user_last_name !==values.user_last_name){
                 use = false;
             }
-            if(values.goal != null ){
-                if(values.goal == 1000 && camps.goal > 1000){
+            if(values.goal !== null ){
+                if(values.goal === 1000 && camps.goal > 1000){
                     use = false;
                 }
-                else if(values.goal == 10000 && (camps.goal < 1000||camps.goal > 10000)){
+                else if(values.goal === 10000 && (camps.goal < 1000||camps.goal > 10000)){
                     use = false;
                 }
-                else if(values.goal == 10001 && camps.goal < 10001){
-                    use = false;
-                }
-            }
-            if(values.donations != null ){
-                if(values.donations == 1000 && camps.current_amount > 1000){
-                    use = false;
-                }
-                else if(values.donations == 10000 && (camps.current_amount < 1000||camps.current_amount > 10000)){
-                    use = false;
-                }
-                else if(values.donations == 10001 && camps.current_amount < 10001){
+                else if(values.goal === 10001 && camps.goal < 10001){
                     use = false;
                 }
             }
-            if(values.donators != null ){
-                if(values.donators == 10 && camps.donators > 10){
+            if(values.donations !== null ){
+                if(values.donations === 1000 && camps.current_amount > 1000){
                     use = false;
                 }
-                else if(values.donators == 50 && (camps.donators < 10||camps.current_amount > 50)){
+                else if(values.donations === 10000 && (camps.current_amount < 1000||camps.current_amount > 10000)){
                     use = false;
                 }
-                else if(values.donators == 51 && camps.donators < 51){
+                else if(values.donations === 10001 && camps.current_amount < 10001){
                     use = false;
                 }
             }
-            if(values.beneficiary != null ){
-                if(values.beneficiary == true && camps.has_beneficiary == false){
+            if(values.donators !== null ){
+                if(values.donators === 10 && camps.donators > 10){
                     use = false;
                 }
-                else if(values.beneficiary == false && camps.has_beneficiary == true){
+                else if(values.donators === 50 && (camps.donators < 10||camps.current_amount > 50)){
+                    use = false;
+                }
+                else if(values.donators === 51 && camps.donators < 51){
+                    use = false;
+                }
+            }
+            if(values.beneficiary !== null ){
+                if(values.beneficiary === true && camps.has_beneficiary === false){
+                    use = false;
+                }
+                else if(values.beneficiary === false && camps.has_beneficiary === true){
                     use = false;
                 }
 
             }
-            if(use == true){
+            if(use === true){
                 console.log("it happened!")
             let id = camps.campaign_id
             searchedCampaigns[id] = camps;

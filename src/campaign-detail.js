@@ -1,18 +1,52 @@
 import React from 'react';
-import { useRouteMatch } from 'react-router-dom';
+//import { useRouteMatch } from 'react-router-dom';
 import * as bs from 'react-bootstrap';
-import CAMPAIGNS from './campaigns.js';
-//import AppContext from './context'
+//import CAMPAIGNS from './campaigns.js';
+import AppContext from './context'
+import {useParams} from "react-router-dom";
 
 export default function ProductDetail(props) {
-    const match = useRouteMatch("/campaign/:campaign")
-    //const context = React.useContext(AppContext)
+    //const match = useRouteMatch("/campaign/:campaign")
+    const context = React.useContext(AppContext)
+    let { campaign } = useParams();
 
-    //campaign = context.campaigns.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id))
-    const campaign = CAMPAIGNS[match.params.campaign_id]
-    console.log('campaigns ', campaign)
+    //campaign = context.campaigns.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id)) //CAMPAIGNS[match.params.campaign_id]
+    const allCampaigns = context.campaigns
+    const unoCampaign = allCampaigns[campaign]
     
-    if (!CAMPAIGNS[match.params.campaign_id]) {
+    //booleans do not show up, so changed it so they will display something
+    let deactivate = unoCampaign.deactivated 
+    let beneficiary = unoCampaign.has_beneficiary
+    let charity = unoCampaign.is_charity
+    let name = unoCampaign.charity_name
+    let valid = unoCampaign.charity_valid
+
+    if (unoCampaign.deactivated === false){
+        deactivate = 'Campaign is active';
+    }
+    else {
+        deactivate = 'Campaign is not active';
+    }
+
+    if (unoCampaign.has_beneficiary === false){
+        beneficiary = 'No'
+    } else{
+        beneficiary = 'Yes'
+    }
+    if (unoCampaign.is_charity === false){
+        charity = 'No'
+        name = 'Not applicable'
+    } else{
+        charity = 'Yes'
+        name = unoCampaign.charity_name
+    }
+    if (unoCampaign.charity_valid === false){
+        valid = 'Not a valid charity'
+    } else{
+        valid = 'Yes'
+    }
+    
+    if (!allCampaigns[campaign]) {
         return (
             <bs.Container>
                 <h3 className="m-4 text-center">Campaign not found.</h3>
@@ -24,26 +58,28 @@ export default function ProductDetail(props) {
             <bs.Container>
                 <bs.Row>
                     <bs.Col md="8" className="my-4">
-                        <h3>{campaign.title}</h3>
-                        <h4>{campaign.user_first_name + ' ' + campaign.user_last_name}</h4>
-                        <p>{campaign.description}</p>
-                        <p>Campaign Deactivated: <b>{campaign.deactivated}</b></p>
+                        <h3>{unoCampaign.title}</h3>
+                        <h6>Posted by {unoCampaign.user_first_name + ' ' + unoCampaign.user_last_name}</h6>
+                        <p>{unoCampaign.description}</p>
+                        <p>Campaign Status: <b>{deactivate}</b></p>
                     </bs.Col>
-                    <bs.Col md="4">
-                        <h2>{props.campaign.current_amount + props.campaign.currencycode} out of {props.campaign.goal + props.campaign.currencycode} raised.</h2>
-                        <p>This campaign has been active for {props.campaign.days_active} days.</p>
-                        <p>Location: {props.campaign.location_city + ' ' + props.campaign.location_country + ' ' + props.campaign.location_zip}</p><br></br>
+                    <bs.Col md="4" className="my-4">
+                        <h4>{unoCampaign.current_amount +' '+ unoCampaign.currencycode} out of {unoCampaign.goal +' '+ unoCampaign.currencycode} raised.</h4>
+                        <p>This campaign has been active for {unoCampaign.days_active} days.</p>
+                        <p>Location: {unoCampaign.location_city + '  ' + unoCampaign.location_country + '  ' + unoCampaign.location_zip}</p><br></br>
 
                     </bs.Col>
                 </bs.Row>
                 <bs.Row>
-                    <h3>Additional Info:</h3>
+                    <bs.Col md='8' className="my-4">
+                    <h3>Additional Info:</h3> 
                     <ul>
-                        <li>Are there beneficiaries? {props.campaign.has_beneficiary}</li>
-                        <li>Is there a charity linked with this campaign? {props.campaign.is_charity}</li>
-                        <li>If so, what is the charity name? {props.campaign.charity_name}</li>
-                        <li>Charity valid? {props.campaign.charity_valid}</li>
+                        <li>Are there beneficiaries?  <em>{beneficiary}</em></li>
+                        <li>Is the creator a charity?  <em>{charity}</em></li>
+                        <li>What is the charity name?  <em>{name}</em></li>
+                        <li>Is the charity valid?  <em>{valid}</em></li>
                     </ul>
+                    </bs.Col>
                 </bs.Row>
             </bs.Container>
         )

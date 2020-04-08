@@ -30,7 +30,7 @@ function HeaderContainer(props) {
                         <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link>
                         <bs.NavDropdown title="Welcome, User" id="basic-nav-dropdown">
                             <bs.NavDropdown.Item href="/">Campaigns</bs.NavDropdown.Item>
-                            <bs.NavDropdown.Item href="/">My Campaigns</bs.NavDropdown.Item>
+                            <bs.NavDropdown.Item href="/search">Search</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/newcampaign">New Campaign</bs.NavDropdown.Item>
                             <bs.NavDropdown.Divider />
                             <bs.NavDropdown.Item href="/account">Log Out</bs.NavDropdown.Item>
