@@ -88,7 +88,7 @@ const FormSchema = Yup.object().shape({
     location_country: Yup
         .string()
         .min(1, "Too Short!")
-        .max(3, "Too Long!")
+        .max(2, "Too Long!")
         .required("Please enter a country"),
     location_zip: Yup
         .string()

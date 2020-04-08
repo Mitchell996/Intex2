@@ -2,10 +2,10 @@ import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup';
-import axios from 'axios';
+//import axios from 'axios';
 import AppContext from './context';
 import { useHistory } from 'react-router-dom'
-import { RangeInput, SingleList, RangeSlider } from '@appbaseio/reactivesearch'
+//import { RangeInput, SingleList, RangeSlider } from '@appbaseio/reactivesearch'
 
 const SearchController = props => {
     const context = React.useContext(AppContext);

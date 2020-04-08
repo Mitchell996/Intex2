@@ -29,7 +29,6 @@ function organize(name, campaigns) {
     return campaignHolder;
 }
 
-
 function Home(props) {
 
     const context = React.useContext(AppContext);

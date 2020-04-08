@@ -10,7 +10,7 @@ export default function Prediction(props){
         <bs.Alert show={show} variant="success">
         <bs.Alert.Heading>How Successful is Your Campaign?</bs.Alert.Heading>
         <p>
-            Based on the parameters you provided, your campaign is predicted to be XX% successful. 
+            Based on the parameters you provided, your campaign is predicted to reach its goal in XXX days. 
         </p>
         <hr />
         <div className="d-flex justify-content-end">
