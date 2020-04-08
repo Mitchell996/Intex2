@@ -2,27 +2,38 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.scss';
 import Home from './home';
+import MyHome from './myHome';
 import CampaignDetail from './campaign-detail'
 import HeaderContainer from './header-container'
 import LeftContainer from './left-container'
 import Form from './goFundMeForm'
 import Account from './account'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { useAuth0 } from "./react-auth0-spa";
+//import { useAuth0 } from "./react-auth0-spa";
+import history from './utils/history';
+import Callback from './callback';
+import Auth from './auth';
 
 function App() {
-  const { loading } = useAuth0();
+  // const { loading } = useAuth0();
 
-  if (loading) {
-    return <div>Loading...</div>;
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+  const auth = new Auth();
+
+  const handleAuthentication = (nextState, replace) => {
+    if (/access_token|id_token|error/.test(nextState.location.hash)) {
+      auth.handleAuthentication();
+    }
   }
-  
+
   return (
-    <Router>
+    <Router history={history} component={MyHome}>
       <Container fluid className="p-0  d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
           <Col className="px-3 py-2">
@@ -36,6 +47,8 @@ function App() {
           <Col md="8">
             <Switch>
 
+              <Route path="/home" render={(props) => <MyHome auth={auth} {...props} />} />
+
               <Route path="/home/categories/:category">
                 <Home />
               </Route>
@@ -44,28 +57,25 @@ function App() {
                 <CampaignDetail />
               </Route>
 
-              <Route path="/home">
-                <Home />
-              </Route>
 
               <Route path="/search">
-                  <Search />
+                <Search />
               </Route>
 
-              <Route path="/checkout-starter"> </Route>
-                {/* <Checkoutstarter /> */}
-
               <Route path="/newcampaign">
-                <Form/>
+                <Form />
               </Route>
 
               <Route path="/account">
-                <Account/>
+                <Account />
               </Route>
 
-              <Route path="/">
-                <Home/>{/* <About /> */}
-              </Route>
+              <Route path="/callback" render={(props) => {
+                handleAuthentication(props);
+                return <Callback {...props} />
+              }} />
+
+              <Route path="/" render={(props) => <MyHome auth={auth} {...props} />} />
 
             </Switch>
           </Col>

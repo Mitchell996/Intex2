@@ -1,7 +1,7 @@
-// import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createBrowserHistory';
 
-// export default createHistory({
-//   basename: process.env.NODE_ENV === 'development' ? '' : '/reactivesearch-auth0-example'
-// });
-import { createBrowserHistory } from "history";
-export default createBrowserHistory();
+export default createHistory({
+  basename: process.env.NODE_ENV === 'development' ? '' : '/intexapp' //not sure what to put where the slash is... was originally name of guy's project
+});
+// import { createBrowserHistory } from "history";
+// export default createBrowserHistory();
