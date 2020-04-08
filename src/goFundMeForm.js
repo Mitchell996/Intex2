@@ -20,6 +20,7 @@ const FormController = props => {
         <Formik
             initialValues={{
                 donators: 18,
+                currencycode: "USD",
                 current_amount: 1000,
                 goal: 5000,
                 days_active: 21,
@@ -36,7 +37,6 @@ const FormController = props => {
                 weekday: "Monday",
                 time_of_day: "2:05pm",
                 is_charity: false,
-                charity_name: '',
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -60,6 +60,11 @@ const FormSchema = Yup.object().shape({
         .number()
         .min(1, "Too Short!")
         .required("Please enter how many donators there are"),
+    currencycode: Yup
+        .string()
+        .min(3, "Must be 3 characters")
+        .max(3, "Must be 3 characters")
+        .required("Please enter what currency you want, such as USD"),
     current_amount: Yup
         .number()
         .min(1, "Too Short!")
@@ -117,6 +122,7 @@ const CampaignForm = props => (
                     <bs.Card.Header as="h5">Predict Your Campaign's Success</bs.Card.Header>
                     <bs.Card.Body>
                         <Input title="Donators:" name="donators" type="number" placeholder="0"  />
+                        <Input title="Type of Currency:" name="currencycode" placeholder="USD" type="text" />
                         <Input title="Current Amount:" name="current_amount" placeholder="0" type="number" />
                         <Input title="Your Goal:" name="goal" type="number" placeholder="1000" />
                         <Input title="Campaign Title:" name="title" type="text" placeholder="I Need Financial Assistance"  />

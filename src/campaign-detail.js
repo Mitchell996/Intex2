@@ -15,18 +15,10 @@ export default function ProductDetail(props) {
     const unoCampaign = allCampaigns[campaign]
     
     //booleans do not show up, so changed it so they will display something
-    let deactivate = unoCampaign.deactivated 
     let beneficiary = unoCampaign.has_beneficiary
     let charity = unoCampaign.is_charity
-    let name = unoCampaign.charity_name
-    let valid = unoCampaign.charity_valid
-
-    if (unoCampaign.deactivated === false){
-        deactivate = 'Campaign is active';
-    }
-    else {
-        deactivate = 'Campaign is not active';
-    }
+    let facebook = unoCampaign.auto_fb_post_mode
+    let search = unoCampaign.visible_in_search
 
     if (unoCampaign.has_beneficiary === false){
         beneficiary = 'No'
@@ -35,15 +27,18 @@ export default function ProductDetail(props) {
     }
     if (unoCampaign.is_charity === false){
         charity = 'No'
-        name = 'Not applicable'
     } else{
         charity = 'Yes'
-        name = unoCampaign.charity_name
     }
-    if (unoCampaign.charity_valid === false){
-        valid = 'Not a valid charity'
+    if (unoCampaign.auto_fb_post_mode === false){
+        facebook = 'No'
     } else{
-        valid = 'Yes'
+        facebook = 'Yes'
+    }
+    if (unoCampaign.visible_in_search === false){
+        search = 'No'
+    } else{
+        search = 'Yes'
     }
     
     if (!allCampaigns[campaign]) {
@@ -61,13 +56,14 @@ export default function ProductDetail(props) {
                         <h3>{unoCampaign.title}</h3>
                         <h6>Posted by {unoCampaign.user_first_name + ' ' + unoCampaign.user_last_name}</h6>
                         <p>{unoCampaign.description}</p>
-                        <p>Campaign Status: <b>{deactivate}</b></p>
                     </bs.Col>
                     <bs.Col md="4" className="my-4">
                         <h4>{unoCampaign.current_amount +' '+ unoCampaign.currencycode} out of {unoCampaign.goal +' '+ unoCampaign.currencycode} raised.</h4>
                         <p>This campaign has been active for {unoCampaign.days_active} days.</p>
-                        <p>Location: {unoCampaign.location_city + '  ' + unoCampaign.location_country + '  ' + unoCampaign.location_zip}</p><br></br>
-
+                        <p>Donators: {unoCampaign.donators}</p>
+                        <p>Campaign Hearts: {unoCampaign.campaign_hearts}</p>
+                        <p>Total Shares on Social Media: {unoCampaign.social_share_total} </p>
+                        <p>Campaign URL: {unoCampaign.url} </p>
                     </bs.Col>
                 </bs.Row>
                 <bs.Row>
@@ -76,8 +72,8 @@ export default function ProductDetail(props) {
                     <ul>
                         <li>Are there beneficiaries?  <em>{beneficiary}</em></li>
                         <li>Is the creator a charity?  <em>{charity}</em></li>
-                        <li>What is the charity name?  <em>{name}</em></li>
-                        <li>Is the charity valid?  <em>{valid}</em></li>
+                        <li>Are updates automatically posted to FaceBook?  <em>{facebook}</em></li>
+                        <li>Is it available in search?  <em>{search}</em></li>
                     </ul>
                     </bs.Col>
                 </bs.Row>
