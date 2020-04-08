@@ -8,7 +8,7 @@ export default class Auth {
     domain: 'dev-group2-08intex.auth0.com',
     clientID: 'dZPG7Ly3I04xGRNIZiRhGPC2mSwferdC',
             //will need to change the domain below to our project domain once it is hosted live 
-    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://appbaseio-apps.github.io/reactivesearch-auth0-example/callback',
+    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : '',
     audience: 'https://dev-group2-08intex.auth0.com/userinfo', //not sure if this page is right either 
     responseType: 'token id_token',
     scope: 'openid'
