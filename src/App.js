@@ -56,28 +56,14 @@ function App() {
               <Route path="/campaign/:campaign">
                 <CampaignDetail />
               </Route>
-<<<<<<< HEAD
-              <Route path="/home">
-                <Home />
-              </Route>
-=======
 
 
->>>>>>> 35daeb4d626b91041d8f29499ee40bd42e7adc79
               <Route path="/search">
                 <Search />
               </Route>
-<<<<<<< HEAD
-              <Route path="/newcampaign">
-                <Form/>
-              </Route>
-              <Route path="/cart">
-                {/* <Cart /> */}
-=======
 
               <Route path="/newcampaign">
                 <Form />
->>>>>>> 35daeb4d626b91041d8f29499ee40bd42e7adc79
               </Route>
 
               <Route path="/account">
