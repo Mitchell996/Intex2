@@ -15,9 +15,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SearchedCampaign from './searchedCampaign'
 //import { useAuth0 } from "./react-auth0-spa";
-import history from './utils/history';
-import Callback from './callback';
-import Auth from './auth';
+// import history from './utils/history';
+// import Callback from './callback';
+// import Auth from './auth';
 
 function App() {
 
@@ -80,7 +80,7 @@ function App() {
               <Route path="/"> {/* render={(props) => <MyHome auth={auth} {...props} />} */}
                 <Home />
               </Route>
-              
+
             </Switch>
           </Col>
         {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>

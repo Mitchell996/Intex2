@@ -11,7 +11,6 @@ function GoFundMeForm(props) {
 }
 export default GoFundMeForm
 
-
 const FormController = props => {
     return (
         <Formik
@@ -105,7 +104,7 @@ const FormController = props => {
                 // })
             }}
         >{form => (
-            <CampaignForm form={form}  /> //    Don't know what to do for total in this part... total={total}
+            <CampaignForm form={form}  /> //Don't know what to do for total in this part (like in our sprint)... total={total}
         )}</Formik>
     )
 }
@@ -116,7 +115,7 @@ const CampaignForm = props => (
         <bs.Container>
             <bs.Row>
                 <bs.Col>
-                    <bs.Card.Header as="h5">Campaign Information</bs.Card.Header>
+                    <bs.Card.Header as="h5">Create a New Campaign</bs.Card.Header>
                     <bs.Card.Body>
                         <Input title="Category:" name="category" type="text" disabled={props.form.isSubmitting} />
                         <Input title="Type of Currency:" name="currencycode" type="text" disabled={props.form.isSubmitting} />
