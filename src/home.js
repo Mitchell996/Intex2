@@ -46,37 +46,30 @@ function Home(props) {
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
-            <h2 className="my-4 text-center">Campaigns</h2>
+            <h2 className="my-4 mx-4">Campaigns</h2>
             <bs.Row noGutters style={{ padding: "3rem 0" }}>
-
-            <div>
-                {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
-                {Object.values(organizedCampaigns).map((campaign) => {
-                    return (<bs.ListGroup key={campaign[0] + count++} horizontal>
-                        <bs.Col md="3">
-                            <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
-                        </bs.Col>
-                        {campaign.length > 1 ?
-                            (<bs.Col md="3">
-                                <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
-                            </bs.Col>) : <div></div>}
-                        {campaign.length > 2 ?
-                            (<bs.Col md="3">
-                                <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
-                            </bs.Col>) : <div></div>}
-                        {campaign.length > 3 ?
-                            (<bs.Col md="3">
-                                <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
-                            </bs.Col>) : <div></div>}
-                    </bs.ListGroup>)
-                })}
-            </div>
-
-            </bs.Row>
-            <bs.Row noGutters style={{ padding: "4rem 0" }} className="bg-info shadow">
-                <bs.Col>
-                    <p>I am putting stuff here. lolz</p>
-                </bs.Col>
+                <div>
+                    {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
+                    {Object.values(organizedCampaigns).map((campaign) => {
+                        return (<bs.ListGroup key={campaign[0] + count++} horizontal>
+                            <bs.Col md="3">
+                                <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
+                            </bs.Col>
+                            {campaign.length > 1 ?
+                                (<bs.Col md="3">
+                                    <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
+                                </bs.Col>) : <div></div>}
+                            {campaign.length > 2 ?
+                                (<bs.Col md="3">
+                                    <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
+                                </bs.Col>) : <div></div>}
+                            {campaign.length > 3 ?
+                                (<bs.Col md="3">
+                                    <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
+                                </bs.Col>) : <div></div>}
+                        </bs.ListGroup>)
+                    })}
+                </div>
             </bs.Row>
         </bs.Container>
     )

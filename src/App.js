@@ -8,6 +8,7 @@ import HeaderContainer from './header-container'
 //import LeftContainer from './left-container'
 import Form from './goFundMeForm'
 import Prediction from './prediction'
+import Managers from './managers'
 import Account from './account'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
@@ -15,6 +16,7 @@ import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SearchedCampaign from './searchedCampaign'
+import { Security } from '@okta/okta-react'
 //import { useAuth0 } from "./react-auth0-spa";
 // import history from './utils/history';
 // import Callback from './callback';
@@ -29,6 +31,13 @@ function App() {
   //     auth.handleAuthentication();
   //   }
   // }
+  const config = {
+    clientId: '{0oa5k4vtvovh4qftW4x6}',
+    issuer: 'https://${dev-273788.okta.com}/oauth2/default',
+    redirectUri: 'http://localhost:8080/implicit/callback',
+    scopes: ['openid', 'profile', 'email'],
+    pkce: true
+  };
 
   return (
     <Router > {/* history={history} component={MyHome} */}
@@ -39,7 +48,7 @@ function App() {
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
-          <Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#99CCCC" }}>
+          <Col md="2" className="px-3 py-4 shadow-sm" >
             {/* <LeftContainer /> */}
           </Col>
           <Col md="8">
@@ -73,6 +82,12 @@ function App() {
                 <Prediction />
               </Route>
 
+              <Security {...config}>
+                <Route path="/qualitycheck">
+                  <Managers/>
+                </Route>
+              </Security>
+              
               <Route path="/account">
                 <Account />
               </Route>

@@ -49,7 +49,6 @@ function SearchedCampaign(props) {
     return (
         <bs.Container fluid className="p-0">
             <bs.Row noGutters style={{ padding: "6rem 0" }}>
-
                 <div className="text-center mt-5">
                     {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
                     {Object.values(organizedCampaigns).map((campaign) => {
@@ -72,12 +71,6 @@ function SearchedCampaign(props) {
                         </bs.ListGroup>)
                     })}
                 </div>
-
-            </bs.Row>
-            <bs.Row noGutters style={{ padding: "4rem 0" }} className="bg-info shadow">
-                <bs.Col>
-                    <p>I am putting stuff here. lolz</p>
-                </bs.Col>
             </bs.Row>
         </bs.Container>
     )

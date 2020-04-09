@@ -6,6 +6,7 @@ function CampaignCard(campaign) {
 
   return (
     <bs.Card>
+      <bs.Card.Header>ID: {campaign.campaign.campaign_id}</bs.Card.Header>
       <bs.Card.Body>
         <bs.Card.Title>{campaign.campaign.title}</bs.Card.Title>
         <bs.Card.Text>
