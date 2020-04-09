@@ -53,22 +53,23 @@ function SearchedCampaign(props) {
                 <div className="text-center mt-5">
                     {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
                     {Object.values(organizedCampaigns).map((campaign) => {
+                        let md = 12 / campaign.length;
                         return (<bs.ListGroup key={campaign[0] + count++} horizontal>
-                            <bs.Col md="3">
+                            <bs.Col md={md}>
                                 <bs.ListGroup.Item sm={3} key={campaign[0].campaign_id}> <CampaignCard campaign={campaign[0]} /> </bs.ListGroup.Item>
                             </bs.Col>
                             {campaign.length > 1 ?
-                                (<bs.Col md="3">
+                                (<bs.Col md={md}>
                                     <bs.ListGroup.Item sm={3} key={campaign[1].campaign_id} ><CampaignCard campaign={campaign[1]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
+                                </bs.Col>) : <bs.Col md="1"></bs.Col>}
                             {campaign.length > 2 ?
-                                (<bs.Col md="3">
+                                (<bs.Col md={md}>
                                     <bs.ListGroup.Item sm={3} key={campaign[2].campaign_id} ><CampaignCard campaign={campaign[2]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
+                                </bs.Col>) : <bs.Col md="1"></bs.Col>}
                             {campaign.length > 3 ?
-                                (<bs.Col md="3">
+                                (<bs.Col md={md}>
                                     <bs.ListGroup.Item sm={3} key={campaign[3].campaign_id} ><CampaignCard campaign={campaign[3]} /></bs.ListGroup.Item>
-                                </bs.Col>) : <div></div>}
+                                </bs.Col>) : <bs.Col md="1"></bs.Col>}
                         </bs.ListGroup>)
                     })}
                 </div>
