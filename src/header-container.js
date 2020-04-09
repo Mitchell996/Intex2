@@ -14,9 +14,9 @@ function HeaderContainer(props) {
                 <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <bs.Navbar.Collapse id="basic-navbar-nav">
                     <bs.Nav className="mr-auto">
-                        <Link to="/home" className="nav-link">Home</Link>
                         <Link to="/search" className="nav-link">Search</Link>
                         <Link to="/predictmycampaign" className="nav-link">Predict</Link>
+                        <Link to="/qualitycheck" className="nav-link">Managers</Link>
                     </bs.Nav>
                     <bs.Nav>
                         {/* <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link> */}
