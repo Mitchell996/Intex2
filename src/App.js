@@ -10,27 +10,17 @@ import Form from './goFundMeForm'
 import Prediction from './prediction'
 import Managers from './managers'
 import Account from './account'
+import ManagersView from './manager-view'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Search from './search'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SearchedCampaign from './searchedCampaign'
-import { Security } from '@okta/okta-react'
-//import { useAuth0 } from "./react-auth0-spa";
-// import history from './utils/history';
-// import Callback from './callback';
-// import Auth from './auth';
+import { Security, LoginCallback, SecureRoute } from '@okta/okta-react'
 
 function App() {
 
-  // const auth = new Auth();
-
-  // const handleAuthentication = (nextState, replace) => {
-  //   if (/access_token|id_token|error/.test(nextState.location.hash)) {
-  //     auth.handleAuthentication();
-  //   }
-  // }
   const config = {
     clientId: '{0oa5k4vtvovh4qftW4x6}',
     issuer: 'https://${dev-273788.okta.com}/oauth2/default',
@@ -40,7 +30,7 @@ function App() {
   };
 
   return (
-    <Router > {/* history={history} component={MyHome} */}
+    <Router > 
       <Container fluid className="p-0  d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
           <Col className="px-3 py-2">
@@ -53,54 +43,53 @@ function App() {
           </Col>
           <Col md="8">
             <Switch>
+              <Security {...config}>
+                <Route path="/home" > 
+                  <Home />
+                </Route>
 
-              <Route path="/home" > {/* render={(props) => <MyHome auth={auth} {...props} />}  */}
-                <Home />
-              </Route>
+                <Route path="/home/categories/:category">
+                  <Home />
+                </Route>
 
               <Route path="/home/weekdays/:weekday">
                 <Home />
               </Route>
 
-              <Route path="/campaign/:campaign">
-                <CampaignDetail />
-              </Route>
+                <Route path="/searchedCampaign">
+                  <SearchedCampaign />
+                </Route>
 
-              <Route path="/searchedCampaign">
-                <SearchedCampaign />
-              </Route>
+                <Route path="/search">
+                  <Search />
+                </Route>
 
-              <Route path="/search">
-                <Search />
-              </Route>
+                <Route path="/predictmycampaign">
+                  <Form />
+                </Route>
 
-              <Route path="/predictmycampaign">
-                <Form />
-              </Route>
+                <Route path="/prediction">
+                  <Prediction />
+                </Route>
 
-              <Route path="/prediction">
-                <Prediction />
-              </Route>
+                <Route path="/account">
+                  <Account />
+                </Route>
 
-              <Security {...config}>
-                <Route path="/qualitycheck">
+                <SecureRoute path="/managers">
                   <Managers/>
+                </SecureRoute>
+                
+                <SecureRoute path="/managers/view" >
+                  <ManagersView/>
+                </SecureRoute>
+
+                <Route path="/callback" component={LoginCallback} />
+                
+                <Route path="/"> 
+                  <Home />
                 </Route>
               </Security>
-              
-              <Route path="/account">
-                <Account />
-              </Route>
-
-              <Route path="/callback" />
-              {/* render={(props) => {
-                handleAuthentication(props);
-                return <Callback {...props} />
-              }} */}
-
-              <Route path="/"> {/* render={(props) => <MyHome auth={auth} {...props} />} */}
-                <Home />
-              </Route>
 
             </Switch>
           </Col>

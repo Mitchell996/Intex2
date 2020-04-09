@@ -16,11 +16,11 @@ function HeaderContainer(props) {
                     <bs.Nav className="mr-auto">
                         <Link to="/search" className="nav-link">Search</Link>
                         <Link to="/predictmycampaign" className="nav-link">Predict</Link>
-                        <Link to="/qualitycheck" className="nav-link">Managers</Link>
+                        <Link to="/managers" className="nav-link">Managers</Link>
                     </bs.Nav>
                     <bs.Nav>
                         {/* <Link to="/campaign"><i className="m-2 fas fa-donate" ></i>  </Link> */}
-                        <bs.NavDropdown title="Welcome, User" id="basic-nav-dropdown">
+                        <bs.NavDropdown title="Welcome" id="basic-nav-dropdown">
                             <bs.NavDropdown.Item href="/">Campaigns</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/search">Search</bs.NavDropdown.Item>
                             <bs.NavDropdown.Item href="/predictmycampaign">Predict</bs.NavDropdown.Item>
