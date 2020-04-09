@@ -45,7 +45,7 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path="/campaign:campaign">
+              <Route path="/campaign/:campaign">
                 <CampaignDetail/>
               </Route>
 

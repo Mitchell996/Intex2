@@ -163,11 +163,12 @@ const CampaignForm = props => (
                             <option value={true}>True</option>
                             <option value={false}>False</option>
                         </Field>
+                        <p></p>
                         {props.error !== "none" ? (
                         <bs.Alert variant="danger">
                             {props.error}
                         </bs.Alert>) : <div></div>}
-                        <bs.Button className="btn btn-success mx-2" type="submit" >
+                        <bs.Button className="btn btn-success my-2" type="submit" >
                             Predict Campaign
                         </bs.Button>
                     </bs.Card.Body>
