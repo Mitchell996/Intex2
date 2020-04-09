@@ -22,6 +22,7 @@ export default class AppProvider extends React.Component {
             categories: {},
             campaigns: {},
             campaignDisplays: {},
+            currentEstimate: 0,
         }
     }
 

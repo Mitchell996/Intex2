@@ -5,7 +5,8 @@ import { Formik, Form, Field } from 'formik'
 import { useHistory } from 'react-router-dom'
 import * as Yup from 'yup'
 import axios from 'axios'
-//import { getByDisplayValue } from '@testing-library/react'
+import { getByDisplayValue } from '@testing-library/react'
+import AppContext from './context'
 
 function GoFundMeForm(props) {
 
@@ -17,14 +18,25 @@ export default GoFundMeForm
 
 const FormController = props => {
     const history = useHistory()
+    const context = React.useContext(AppContext)
     let error = 'none'
     return (
         <Formik
             initialValues={{
-                currencyCode: "USD",
+                donators: 18,
+                currencycode: "USD",
+                current_amount: 1000,
                 goal: 5000,
+                days_active: 21,
+                title: "Look! An interesting title.",
+                description: "This is my fun description.",
+                description_length: 100,
                 has_beneficiary: false,
+                user_first_name: "Some",
+                user_last_name: "Dude",
                 visible_in_search: true,
+                campaign_hearts: 200,
+                social_share_total: 201,
                 auto_fb_post_mode: false,
                 weekday: "Monday",
                 time_of_day: "2:05pm",
@@ -63,7 +75,7 @@ const FormController = props => {
                     "Inputs": {
                         "input1": {
                             "ColumnNames": ["auto_fb_post_mode", "current_amount", "goal", "has_beneficiary", "days_active", "is_charity", "weekday", "time_of_day"],
-                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked.has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
+                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked. has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
                         },
                     },
                     "GlobalParameters": {}
@@ -88,12 +100,14 @@ const FormController = props => {
                 let predictionSTDev = respData.Results.output1.value.Values[0][9]
                 console.log(predictionValue)
                 console.log(predictionSTDev)
+                
+                context.currentEstimate = predictionValue
 
-                history.push("/prediction")
+                history.push("/prediction", { predictionValue: predictionValue })
 
             }}
         >{form => (
-            <CampaignForm form={form} error={error} /> 
+            <CampaignForm form={form} error={error} /> //Don't know what to do for total in this part (like in our sprint)... total={total}
         )}</Formik>
     )
 }
@@ -110,23 +124,18 @@ const FormSchema = Yup.object().shape({
     weekday: Yup
         .string()
         .required("Please enter the day of the week of the launch of this campaign"),
-    currencyCode: Yup
-        .string()
-        .min(3, "Too Short!")
-        .max(3, "Too Long!")
-        .required("Please enter a currency, such as USD"),
     time_of_day: Yup
         .string()
         .required("Please enter the time of day of the launch of this campaign"),
     has_beneficiary: Yup
         .bool()
-        .required("Please choose if there is a beneficiary"),
+        .required("Please enter the time of day of the launch of this campaign"),
     auto_fb_post_mode: Yup
         .bool()
-        .required("Please choose if automatic updates are posted to FaceBook"),
+        .required("Please enter the time of day of the launch of this campaign"),
     is_charity: Yup
         .bool()
-        .required("Please choose if you are a charity"),
+        .required("Please enter the time of day of the launch of this campaign"),
 })
 
 const CampaignForm = props => (
@@ -136,10 +145,15 @@ const CampaignForm = props => (
                 <bs.Col>
                     <bs.Card.Header as="h5">Predict Your Campaign's Success</bs.Card.Header>
                     <bs.Card.Body>
-                        <Input title="Type of Currency:" name="currencyCode" placeholder="USD" type="text" />
+                        <Input title="Type of Currency:" name="currencycode" placeholder="USD" type="text" />
                         <Input title="Your Goal:" name="goal" type="number" placeholder="1000" />
                         <Input title="Day of Week Launched:" name="weekday" type="text" placeholder="Monday" />
                         <Input title="Time of Day Launched:" name="time_of_day" type="text" placeholder="12:00pm" />
+                    </bs.Card.Body>
+                </bs.Col>
+                <bs.Col>
+                    {/* <bs.Card.Header as="h5"></bs.Card.Header> */}
+                    <bs.Card.Body>
                         <p>Are updates automatically posted to FaceBook?</p>
                         <Field as="select" name="auto_fb_post_mode" >
                             <option value={true}>True</option>
@@ -163,14 +177,14 @@ const CampaignForm = props => (
                             <option value={true}>True</option>
                             <option value={false}>False</option>
                         </Field>
-                        {props.error !== "none" ? (
+                    </bs.Card.Body>
+                    {props.error !== "none" ? (
                         <bs.Alert variant="danger">
                             {props.error}
                         </bs.Alert>) : <div></div>}
-                        <bs.Button className="btn btn-success mx-2" type="submit" >
-                            Predict Campaign
-                        </bs.Button>
-                    </bs.Card.Body>
+                    <bs.Button className="btn btn-success mx-2" type="submit" >
+                        Predict Campaign
+                    </bs.Button>
                 </bs.Col>
             </bs.Row>
         </bs.Container>
