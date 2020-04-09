@@ -50,7 +50,7 @@ const FormController = props => {
 
             }}
         >{form => (
-            <CampaignForm form={form} error={error} /> //Don't know what to do for total in this part (like in our sprint)... total={total}
+            <CampaignForm form={form} error={error} /> 
         )}</Formik>
     )
 }

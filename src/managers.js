@@ -1,24 +1,16 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
-import { useOktaAuth } from '@okta/okta-react';
 
-const Manager = () => { 
-    const { authState, authService } = useOktaAuth();
+function Manager(props){
     
-    const login = () => authService.login('/managers/view');
-  
-    if( authState.isPending ) { 
-      return (
-        <div>Loading authentication...</div>
-      );
-    } else if( !authState.isAuthenticated ) { 
-      return (
-        <div>
-          <bs.Button variant="primary" className="my-4 mx-4" onClick={login}>Login</bs.Button>
-        </div>
-      );
-    }
-    
-  };
+    return(
+        <bs.Container>
+            <bs.Row>
+                <h4>Here will be where the managers can look at high and low quality campaigns</h4>
+                <p>How do we want that to look? What are we going to do for this page? Any ideas?</p>
+            </bs.Row>
+        </bs.Container>
+    )
+}
 export default Manager;
 
