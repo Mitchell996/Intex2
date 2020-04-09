@@ -62,7 +62,7 @@ const FormController = props => {
                     "Inputs": {
                         "input1": {
                             "ColumnNames": ["auto_fb_post_mode", "current_amount", "goal", "has_beneficiary", "days_active", "is_charity", "weekday", "time_of_day"],
-                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked. has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
+                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked.has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
                         },
                     },
                     "GlobalParameters": {}

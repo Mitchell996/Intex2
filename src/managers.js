@@ -1,15 +1,26 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
+import { useState } from 'react'
 
-function Manager(props){
-    
-    return(
-        <bs.Container>
-            <bs.Row>
-                <h4>Here will be where the managers can look at high and low quality campaigns</h4>
-                <p>How do we want that to look? What are we going to do for this page? Any ideas?</p>
-            </bs.Row>
-        </bs.Container>
+function Manager(props) {
+    const [show, setShow] = useState(true);
+    return (
+        <>
+            <bs.Alert show={show} variant="success">
+                <bs.Alert.Heading>Welcome to the Managers page!</bs.Alert.Heading>
+                <p>
+                    How are we going to display the highest and lowest quality campaigns here????
+                </p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <bs.Button onClick={() => setShow(false)} variant="outline-success">
+                        Dismiss
+            </bs.Button>
+                </div>
+            </bs.Alert>
+
+            {!show && <bs.Button className='my-4 mx-4' onClick={() => setShow(true)}>Show Prediction</bs.Button>}
+        </>
     )
 }
 export default Manager;
