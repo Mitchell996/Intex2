@@ -1,21 +1,18 @@
 import React from 'react';
-//import { useRouteMatch } from 'react-router-dom';
 import * as bs from 'react-bootstrap';
 import AppContext from './context'
 import {useParams} from "react-router-dom";
 
 export default function ProductDetail(props) {
-    //const match = useRouteMatch("/campaign/:campaign")
     const context = React.useContext(AppContext)
     let { campaign } = useParams();
 
-    //campaign = context.campaigns.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id)) //CAMPAIGNS[match.params.campaign_id]
     const allCampaigns = context.campaigns
     const unoCampaign = allCampaigns[campaign]
     
     //booleans do not show up, so changed it so they will display something
     let beneficiary = unoCampaign.has_beneficiary
-    let charity = unoCampaign.is_charity
+    //let charity = unoCampaign.is_charity
     let facebook = unoCampaign.auto_fb_post_mode
     let search = unoCampaign.visible_in_search
     
@@ -24,13 +21,13 @@ export default function ProductDetail(props) {
     } else{
         beneficiary = 'Yes'
     }
-    if (unoCampaign.is_charity === 'FALSE'){
-        charity = 'No'
-    } else if (unoCampaign.is_charity === 'TRUE'){
-        charity = 'Yes'
-    } else{
-        charity = 'N/A'
-    }
+    // if (unoCampaign.is_charity === 'FALSE'){
+    //     charity = 'No'
+    // } else if (unoCampaign.is_charity === 'TRUE'){
+    //     charity = 'Yes'
+    // } else{
+    //     charity = 'N/A'
+    //}
     if (unoCampaign.auto_fb_post_mode === 'FALSE'){
         facebook = 'No'
     } else{
