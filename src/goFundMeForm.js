@@ -5,7 +5,6 @@ import { Formik, Form, Field } from 'formik'
 import { useHistory } from 'react-router-dom'
 import * as Yup from 'yup'
 import axios from 'axios'
-//import { getByDisplayValue } from '@testing-library/react'
 
 function GoFundMeForm(props) {
 
@@ -63,7 +62,7 @@ const FormController = props => {
                     "Inputs": {
                         "input1": {
                             "ColumnNames": ["auto_fb_post_mode", "current_amount", "goal", "has_beneficiary", "days_active", "is_charity", "weekday", "time_of_day"],
-                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked.has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
+                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked. has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
                         },
                     },
                     "GlobalParameters": {}
@@ -93,7 +92,7 @@ const FormController = props => {
 
             }}
         >{form => (
-            <CampaignForm form={form} error={error} /> 
+            <CampaignForm form={form} error={error} /> //Don't know what to do for total in this part (like in our sprint)... total={total}
         )}</Formik>
     )
 }
@@ -112,9 +111,7 @@ const FormSchema = Yup.object().shape({
         .required("Please enter the day of the week of the launch of this campaign"),
     currencyCode: Yup
         .string()
-        .min(3, "Too Short!")
-        .max(3, "Too Long!")
-        .required("Please enter a currency, such as USD"),
+        .required("Please enter a currency, such as EUR or USD"),
     time_of_day: Yup
         .string()
         .required("Please enter the time of day of the launch of this campaign"),
@@ -123,10 +120,10 @@ const FormSchema = Yup.object().shape({
         .required("Please choose if there is a beneficiary"),
     auto_fb_post_mode: Yup
         .bool()
-        .required("Please choose if automatic updates are posted to FaceBook"),
+        .required("Please choose if automatic posts are enabled"),
     is_charity: Yup
         .bool()
-        .required("Please choose if you are a charity"),
+        .required("Please choose if the campaign is sponsored by a charity"),
 })
 
 const CampaignForm = props => (
