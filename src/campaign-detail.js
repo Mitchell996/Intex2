@@ -13,6 +13,7 @@ export default function ProductDetail(props) {
     //campaign = context.campaigns.campaigns.find(({ campaign_id }) => campaign_id === parseInt(match.params.campaign_id)) //CAMPAIGNS[match.params.campaign_id]
     const allCampaigns = context.campaigns
     const unoCampaign = allCampaigns[campaign]
+    console.log('The Campaign ',unoCampaign)
     
     //booleans do not show up, so changed it so they will display something
     let beneficiary = unoCampaign.has_beneficiary
@@ -58,7 +59,7 @@ export default function ProductDetail(props) {
                         <p>{unoCampaign.description}</p>
                     </bs.Col>
                     <bs.Col md="4" className="my-4">
-                        <h4>{unoCampaign.current_amount +' '+ unoCampaign.currencycode} out of {unoCampaign.goal +' '+ unoCampaign.currencycode} raised.</h4>
+                        <h4>{unoCampaign.current_amount +' '+ unoCampaign.currencyCode} out of {unoCampaign.goal +' '+ unoCampaign.currencyCode} raised. {console.log(unoCampaign.currencyCode)}</h4>
                         <p>This campaign has been active for {unoCampaign.days_active} days.</p>
                         <p>Donators: {unoCampaign.donators}</p>
                         <p>Campaign Hearts: {unoCampaign.campaign_hearts}</p>
