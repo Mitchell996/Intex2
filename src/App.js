@@ -19,7 +19,7 @@ import SearchedCampaign from './searchedCampaign'
 function App() {
 
   return (
-    <Router > 
+    <Router >
       <Container fluid className="p-0  d-flex flex-column">
         <Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
           <Col className="px-3 py-2">
@@ -28,67 +28,71 @@ function App() {
         </Row>
         <Row noGutters className="flex-grow-1">
           <Col md="2" className="px-3 py-4 shadow-sm" >
-              {/* <LeftContainer /> */}
+            {/* <LeftContainer /> */}
           </Col>
           <Col md="8">
             <Switch>
-              
-                <Route path="/home" > 
-                  <Home />
-                </Route>
 
-                <Route path="/home/categories/:category">
-                  <Home />
-                </Route>
+              <Route path="/home" >
+                <Home />
+              </Route>
+
+              <Route path="/home/categories/:category">
+                <Home />
+              </Route>
 
               <Route path="/home/weekdays/:weekday">
                 <Home />
               </Route>
 
-                <Route path="/searchedCampaign">
-                  <SearchedCampaign />
-                </Route>
+              <Route path="/campaign:campaign">
+                <CampaignDetail/>
+              </Route>
 
-                <Route path="/search">
-                  <Search />
-                </Route>
+              <Route path="/searchedCampaign">
+                <SearchedCampaign />
+              </Route>
 
-                <Route path="/predictmycampaign">
-                  <Form />
-                </Route>
+              <Route path="/search">
+                <Search />
+              </Route>
 
-                <Route path="/prediction">
-                  <Prediction />
-                </Route>
+              <Route path="/predictmycampaign">
+                <Form />
+              </Route>
 
-                <Route path="/account">
-                  <Account />
-                </Route>
+              <Route path="/prediction">
+                <Prediction />
+              </Route>
 
-                <Route path="/managers">
-                  <Login/>
-                </Route>
+              <Route path="/account">
+                <Account />
+              </Route>
 
-                <Route path="/welcomemanager" >
-                  <Managers/>
-                </Route>
-                
-                <Route path="/"> 
-                  <Home />
-                </Route>
-              
+              <Route path="/managers">
+                <Login />
+              </Route>
+
+              <Route path="/welcomemanager" >
+                <Managers />
+              </Route>
+
+              <Route path="/">
+                <Home />
+              </Route>
+
 
             </Switch>
           </Col>
-        {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
+          {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
               <RightContainer />
            </Col>*/}
         </Row>
-      <Row noGutters className="flexGrow-0 flex-shrink-0">
-        <Col className="px-3 py-2">
-          {/* <FooterContainer /> */}
-        </Col>
-      </Row>
+        <Row noGutters className="flexGrow-0 flex-shrink-0">
+          <Col className="px-3 py-2">
+            {/* <FooterContainer /> */}
+          </Col>
+        </Row>
       </Container>
 
     </Router >

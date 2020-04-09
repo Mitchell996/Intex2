@@ -1,7 +1,6 @@
 import React from 'react';
 //import { useRouteMatch } from 'react-router-dom';
 import * as bs from 'react-bootstrap';
-//import CAMPAIGNS from './campaigns.js';
 import AppContext from './context'
 import {useParams} from "react-router-dom";
 
