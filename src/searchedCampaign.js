@@ -48,7 +48,7 @@ function SearchedCampaign(props) {
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
-            <bs.Row noGutters style={{ padding: "6rem 0" }}>
+            <bs.Row noGutters style={{ padding: "3rem 0" }}>
                 <div className="text-center mt-5">
                     {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}
                     {Object.values(organizedCampaigns).map((campaign) => {
