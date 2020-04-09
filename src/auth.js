@@ -62,17 +62,3 @@
 //     return new Date().getTime() < expiresAt;
 //   }
 // }
-
-
-
-
-export default function Auth(){
-  const config = {
-    clientId: '{0oa5k4vtvovh4qftW4x6}',
-    issuer: 'https://${dev-273788.okta.com}/oauth2/default',
-    redirectUri: 'http://localhost:8080/implicit/callback',
-    scopes: ['openid', 'profile', 'email'],
-    pkce: true
-  };
-  
-}
