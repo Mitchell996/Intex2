@@ -37,15 +37,11 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path="/home/categories/:category">
-                <Home />
-              </Route>
-
               <Route path="/home/weekdays/:weekday">
                 <Home />
               </Route>
 
-              <Route path="/campaign:campaign">
+              <Route path="/campaign/:campaign">
                 <CampaignDetail/>
               </Route>
 
