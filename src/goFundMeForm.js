@@ -1,11 +1,9 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
-//import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import * as Yup from 'yup'
 import axios from 'axios'
-import { getByDisplayValue } from '@testing-library/react'
 import AppContext from './context'
 
 function GoFundMeForm(props) {
@@ -23,20 +21,10 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-                donators: 18,
-                currencycode: "USD",
-                current_amount: 1000,
+                currencyCode: "USD",
                 goal: 5000,
-                days_active: 21,
-                title: "Look! An interesting title.",
-                description: "This is my fun description.",
-                description_length: 100,
                 has_beneficiary: false,
-                user_first_name: "Some",
-                user_last_name: "Dude",
                 visible_in_search: true,
-                campaign_hearts: 200,
-                social_share_total: 201,
                 auto_fb_post_mode: false,
                 weekday: "Monday",
                 time_of_day: "2:05pm",
@@ -113,10 +101,11 @@ const FormController = props => {
 }
 
 const FormSchema = Yup.object().shape({
-    current_amount: Yup
-        .number()
-        .min(1, "Too Short!")
-        .required("Please enter what the current amount donated is"),
+    currencyCode: Yup
+        .string()
+        .min(3, "Too Short!")
+        .max(3, "Too Long!")
+        .required("Please enter the currency, such as EUR or USD"),
     goal: Yup
         .number()
         .min(3, "Too Short!")
@@ -129,13 +118,13 @@ const FormSchema = Yup.object().shape({
         .required("Please enter the time of day of the launch of this campaign"),
     has_beneficiary: Yup
         .bool()
-        .required("Please enter the time of day of the launch of this campaign"),
+        .required("Please choose if there is a beneficiary"),
     auto_fb_post_mode: Yup
         .bool()
-        .required("Please enter the time of day of the launch of this campaign"),
+        .required("Please choose if automatic FaceBook updates are enabled"),
     is_charity: Yup
         .bool()
-        .required("Please enter the time of day of the launch of this campaign"),
+        .required("Please choose if the campaign is run by a charity"),
 })
 
 const CampaignForm = props => (
@@ -149,11 +138,6 @@ const CampaignForm = props => (
                         <Input title="Your Goal:" name="goal" type="number" placeholder="1000" />
                         <Input title="Day of Week Launched:" name="weekday" type="text" placeholder="Monday" />
                         <Input title="Time of Day Launched:" name="time_of_day" type="text" placeholder="12:00pm" />
-                    </bs.Card.Body>
-                </bs.Col>
-                <bs.Col>
-                    {/* <bs.Card.Header as="h5"></bs.Card.Header> */}
-                    <bs.Card.Body>
                         <p>Are updates automatically posted to FaceBook?</p>
                         <Field as="select" name="auto_fb_post_mode" >
                             <option value={true}>True</option>
@@ -177,14 +161,15 @@ const CampaignForm = props => (
                             <option value={true}>True</option>
                             <option value={false}>False</option>
                         </Field>
-                    </bs.Card.Body>
-                    {props.error !== "none" ? (
+                        <p></p>
+                        {props.error !== "none" ? (
                         <bs.Alert variant="danger">
                             {props.error}
                         </bs.Alert>) : <div></div>}
-                    <bs.Button className="btn btn-success mx-2" type="submit" >
-                        Predict Campaign
-                    </bs.Button>
+                        <bs.Button className="btn btn-success my-2" type="submit" >
+                            Predict Campaign
+                        </bs.Button>
+                    </bs.Card.Body>
                 </bs.Col>
             </bs.Row>
         </bs.Container>
