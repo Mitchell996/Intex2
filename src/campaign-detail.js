@@ -63,7 +63,7 @@ export default function ProductDetail(props) {
                         <p>Donators: {unoCampaign.donators}</p>
                         <p>Campaign Hearts: {unoCampaign.campaign_hearts}</p>
                         <p>Total Shares on Social Media: {unoCampaign.social_share_total} </p>
-                        <p>Campaign URL: {unoCampaign.url} </p>
+                        <p>Campaign URL: {unoCampaign.url} {console.log(unoCampaign.url)}</p>
                     </bs.Col>
                 </bs.Row>
                 <bs.Row>
