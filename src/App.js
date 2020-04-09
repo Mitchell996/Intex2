@@ -28,7 +28,7 @@ function App() {
         </Row>
         <Row noGutters className="flex-grow-1">
           <Col md="2" className="px-3 py-4 shadow-sm" >
-            {/* <LeftContainer /> */}
+              {/* <LeftContainer /> */}
           </Col>
           <Col md="8">
             <Switch>
@@ -41,9 +41,9 @@ function App() {
                   <Home />
                 </Route>
 
-                <Route path="/campaign/:campaign">
-                  <CampaignDetail />
-                </Route>
+              <Route path="/home/weekdays/:weekday">
+                <Home />
+              </Route>
 
                 <Route path="/searchedCampaign">
                   <SearchedCampaign />
