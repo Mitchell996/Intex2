@@ -6,8 +6,9 @@ import AppContext from './context';
 
 function organize(name, campaigns) {
     //if it isn't null, then filter out anything not in the category
+    //console.log("the name",name);
     if (name != null) {
-        campaigns = campaigns.filter((val) => val.category.title === name)
+        campaigns = campaigns.filter((val) => val.weekday.day === name)
     }
     /* if(charitySort==1){
          campaigns = campaigns.filter((val) => val.is_charity===1)
@@ -16,7 +17,7 @@ function organize(name, campaigns) {
          campaigns = campaigns.filter((val) => val.is_charity===2)
      }*/
     let campaignHolder = [];
-    console.log("the campaigns:", campaigns);
+    //console.log("the campaigns:", campaigns);
     //first loop is going through every campaign
     for (let i = 0; i < campaigns.length; i += 4) {
         let fourSlots = [];
@@ -34,16 +35,36 @@ function Home(props) {
     const context = React.useContext(AppContext);
     let campaigns = []
     //const [charitySort, setCharitySort] = useState(0);
-    console.log("Why is there no context?", context.campaigns);
+    //console.log("Why is there no context?", context.campaigns);
     for (let i = 1; i < (Object.keys(context.campaigns).length) + 1; i++) {
-        campaigns.push(context.campaigns[Object.keys(context.campaigns)[i - 1]])
+        campaigns.push(context.campaigns[Object.keys(context.campaigns)[i -1]])
     }
-    console.log("what is it? ", campaigns);
-    let { category } = useParams();
+    //console.log("what is it? ", campaigns);
+    let { weekday } = useParams();
 
-    let organizedCampaigns = organize(category, campaigns);
-    console.log("what do we have here?", organizedCampaigns);
+    let organizedCampaigns = organize(weekday, campaigns);
+    //console.log("what do we have here?", organizedCampaigns);
     let count = 0;
+    if(context.isLoading){
+        return(
+            <bs.Container fluid className="p-0">
+        <span className="Loader">
+        <div className="Loader-indicator" >
+          <h1>
+            <span>Loading</span>
+            <span className="Loader-ellipsis" >
+              <span className="Loader-ellipsisDot">.</span>
+              <span className="Loader-ellipsisDot">.</span>
+              <span className="Loader-ellipsisDot">.</span>
+            </span>
+          </h1>
+        </div>
+      </span>
+      </bs.Container>
+      )
+    } else {
+
+    
     return (
         <bs.Container fluid className="p-0">
             <h2 className="my-4 mx-4">Campaigns</h2>
@@ -73,6 +94,7 @@ function Home(props) {
             </bs.Row>
         </bs.Container>
     )
+                }
 
 }
 

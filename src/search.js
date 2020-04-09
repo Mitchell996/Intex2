@@ -45,20 +45,10 @@ const SearchController = props => {
 }
 
 const FormSchema = Yup.object().shape({
-    title: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!'),
-    category: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!'),
+    
     campaign_id: Yup.string()
-        .min(6, 'Too Short!'),
-    days_active: Yup.string(),
-    user_first_name: Yup.string()
-        .min(2, "Too short!"),
-    user_last_name: Yup.string()
-        .min(5, "Too Short!")
-        .max(17, "Too Long!"),
+        .min(6, 'We require full id on search'),
+    
 });
 
 const PaymentForm = props => (
@@ -101,6 +91,25 @@ const PaymentForm = props => (
                             <option value={null}>Don't care</option>
                             <option value={true}>Has beneficiary</option>
                             <option value={false}>Doesn't have beneficiary</option>
+                        </Field>
+                        <p></p>
+                        <p>Is charity:</p>
+                        <Field as="select" name="charity" placeholder="charity">
+                            <option value={null}>Don't care</option>
+                            <option value={true}>is Charity</option>
+                            <option value={false}>Not a charity</option>
+                        </Field>
+                        <p></p>
+                        <p>Weekday:</p>
+                        <Field as="select" name="weekday" placeholder="weekday">
+                            <option value={null}>Don't care</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
                         </Field>
                     </bs.Card.Body>
 

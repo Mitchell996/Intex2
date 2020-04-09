@@ -30,48 +30,48 @@ function LeftContainer(props){
     
 
     let categories = [];
-    console.log("the categories: ", context.campaigns)
-    let length = (Object.keys(context.categories).length)+1
-   
-    /*for (let i = 1; i < length; i++)
-    {
-        categories.push(context.categories[i-1].title)
-    }
+    console.log("the categories: ", context)
     
-    let campaignCategories = []
-    length =(Object.keys(context.campaigns).length)+1
-    for(let i = 1; i < length; i++ )
+   
+    
+    categories.push("Sunday")
+    categories.push("Monday")
+    categories.push("Tuesday")
+    categories.push("Wednesday")
+    categories.push("Thursday")
+    categories.push("Friday")
+    categories.push("Saturday")
+    
+    //let campaignDays = []
+    //let length =(Object.keys(context.campaigns).length)+1
+    /*for(let i = 1; i < length; i++ )
     {
-        campaignCategories.push(context.campaigns[i-1].category/*.title)
+        campaignDays.push(context.campaigns[i].weekdays.day)
     }*/
-   /* campaignCategories.push("")
-    let categoryNum = countCategories(campaignCategories);
+   //campaignDays.push("")
+    //let weekdayNum = countCategories(campaignDays);
     return(
         
         <bs.Container>
             <Route></Route>
-            <h1> menu</h1>
+            <h1> Filters</h1>
             <bs.Nav key="Nav1">
-                <li key="Home#"><Link to={"/home"}>{"No Filter(" +categoryNum["total"]+")"} </Link></li>
+                <li key="Home#"><Link to={"/home"}>{"No Filter"} </Link></li>
                 </bs.Nav>
             {
                 
-                Object.values(categories).map((category) =>
+                Object.values(categories).map((weekday) =>
                 {
                     return(
-                      <bs.Nav key={"Nav" + category}>
-                    <li key={category}><Link to={"/home/categories/" + category}>{category + "(" + categoryNum[category]+")"}</Link></li>
+                      <bs.Nav key={"Nav" + weekday}>
+                    <li key={weekday}><Link to={"/home/weekdays/" + weekday}>{weekday}</Link></li>
                     </bs.Nav>
                     )
                 })
                 
             }
         </bs.Container>
-    )*/
-    return(
-        <bs.Container>
-            <p>hello there</p>
-        </bs.Container>
     )
+   
 }
 export default LeftContainer;
