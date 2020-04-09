@@ -121,6 +121,7 @@ export default class AppProvider extends React.Component {
                     "url": "https://www.gofundme.com/f/ut4tx8",
                     "campaign_id": 4611187,
                     "donators": 22,
+                    "currencycode": "USD",
                     "current_amount": 1500.00,
                     "goal": 1500.00,
                     "days_active": 1758,
@@ -140,6 +141,7 @@ export default class AppProvider extends React.Component {
                     "url": "https://www.gofundme.com/f/CSU-RMC-shirt-auction",
                     "campaign_id": 39914790,
                     "donators": 8,
+                    "currencycode": "USD",
                     "current_amount": 905.00,
                     "goal": 5000.00,
                     "days_active": 277,
@@ -159,6 +161,7 @@ export default class AppProvider extends React.Component {
                     "url": "https://www.gofundme.com/f/1p5yn9we5c",
                     "campaign_id": 40688092,
                     "donators": 0,
+                    "currencycode": "EUR",
                     "current_amount": 0,
                     "goal": 1000,
                     "days_active": 2,
@@ -178,6 +181,7 @@ export default class AppProvider extends React.Component {
                     "url": "https://www.gofundme.com/f/saving-the-lives-and-support-for-transgender-people",
                     "campaign_id": 34791666,
                     "donators": 27,
+                    "currencycode": "USD",
                     "current_amount": 3720,
                     "goal": 25000,
                     "days_active": 479,
@@ -197,6 +201,7 @@ export default class AppProvider extends React.Component {
                     "url": "https://www.gofundme.com/f/dpi-roe-protezionecivile",
                     "campaign_id": 42824334,
                     "donators": 0,
+                    "currencycode": "EUR",
                     "current_amount": 0,
                     "goal": 10000,
                     "days_active": 2,
@@ -211,7 +216,7 @@ export default class AppProvider extends React.Component {
                     "campaign_hearts": 0,
                     "social_share_total": 0,
                     "auto_fb_post_mode": false
-                },
+                }
             ]
         }
         //console.log("hello there!")

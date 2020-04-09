@@ -46,7 +46,7 @@ function Home(props) {
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
-            <h2 className="my-4 text-center">Campaigns</h2>
+            <h2 className="my-4 mx-4">Campaigns</h2>
             <bs.Row noGutters style={{ padding: "3rem 0" }}>
 
             <div>

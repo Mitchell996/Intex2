@@ -39,7 +39,7 @@ function App() {
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
-          <Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#99CCCC" }}>
+          <Col md="2" className="px-3 py-4 shadow-sm" >
             {/* <LeftContainer /> */}
           </Col>
           <Col md="8">

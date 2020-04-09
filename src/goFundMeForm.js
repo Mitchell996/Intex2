@@ -41,13 +41,13 @@ const FormController = props => {
             validateOnChange={false}
             validateOnBlur={false}
             validationSchema={FormSchema}
-            
+
             onSubmit={async (values, actions) => {
                 console.log('submit', values)
                 console.log('actions', actions)
-                
+
                 history.push("/prediction")
-                
+
             }}
         >{form => (
             <CampaignForm form={form} error={error} /> //Don't know what to do for total in this part (like in our sprint)... total={total}
@@ -76,7 +76,7 @@ const FormSchema = Yup.object().shape({
     days_active: Yup
         .number()
         .min(1, "Too Short!")
-        .required("Please enter how long this campaign has been active for"), 
+        .required("Please enter how long this campaign has been active for"),
     title: Yup
         .string()
         .min(5, "Too Short!")
@@ -114,26 +114,32 @@ const FormSchema = Yup.object().shape({
         .required("Please enter the time of day of the launch of this campaign"),
 })
 
-const CampaignForm = props => (    
+const CampaignForm = props => (
     <Form>
         <bs.Container>
             <bs.Row>
                 <bs.Col>
                     <bs.Card.Header as="h5">Predict Your Campaign's Success</bs.Card.Header>
                     <bs.Card.Body>
-                        <Input title="Donators:" name="donators" type="number" placeholder="0"  />
+                        <Input title="Donators:" name="donators" type="number" placeholder="0" />
                         <Input title="Type of Currency:" name="currencycode" placeholder="USD" type="text" />
                         <Input title="Current Amount:" name="current_amount" placeholder="0" type="number" />
                         <Input title="Your Goal:" name="goal" type="number" placeholder="1000" />
-                        <Input title="Campaign Title:" name="title" type="text" placeholder="I Need Financial Assistance"  />
-                        <Input title="Description:" name="description" type="text" placeholder="Due to some recent health problems, I need financial assistance..."/>
+                        <Input title="Campaign Title:" name="title" type="text" placeholder="I Need Financial Assistance" />
+                        <Input title="Description:" name="description" type="text" placeholder="Due to some recent health problems, I need financial assistance..." />
                         <Input title="Description Length:" name="description_length" type="number" placeholder="0" />
-                        <Input title="First Name:" name="user_first_name" type="text" placeholder="John"  />
-                        <Input title="Last Name:" name="user_last_name" type="text" placeholder="Doe"  />
-                        <Input title="Campaign Hearts:" name="campaign_hearts" type="number" placeholder="0"  />
-                        <Input title="Social Share Total:" name="social_share_total" type="number" placeholder="0"  />
+                        <Input title="First Name:" name="user_first_name" type="text" placeholder="John" />
+                        <Input title="Last Name:" name="user_last_name" type="text" placeholder="Doe" />
+                        <Input title="Campaign Hearts:" name="campaign_hearts" type="number" placeholder="0" />
+                        <Input title="Social Share Total:" name="social_share_total" type="number" placeholder="0" />
                         <Input title="Day of Week Launched:" name="weekday" type="text" placeholder="Monday" />
                         <Input title="Time of Day Launched:" name="time_of_day" type="text" placeholder="12:00pm" />
+
+                    </bs.Card.Body>
+                </bs.Col>
+                <bs.Col>
+                    {/* <bs.Card.Header as="h5"></bs.Card.Header> */}
+                    <bs.Card.Body>
                         <p>Are updates automatically posted to FaceBook?</p>
                         <Field as="select" name="auto_fb_post_mode" >
                             <option value={true}>True</option>
@@ -158,7 +164,6 @@ const CampaignForm = props => (
                             <option value={false}>False</option>
                         </Field>
                     </bs.Card.Body>
-
                     {props.error !== "none" ? (
                         <bs.Alert variant="danger">
                             {props.error}
@@ -166,7 +171,6 @@ const CampaignForm = props => (
                     <bs.Button className="btn btn-success mx-2" type="submit" >
                         Predict Campaign
                     </bs.Button>
-                    {/* <Link className="btn btn-success" type="submit" to="/prediction">Predict Campaign</Link> */}
                 </bs.Col>
             </bs.Row>
         </bs.Container>
