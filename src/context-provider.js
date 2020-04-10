@@ -46,10 +46,10 @@ export default class AppProvider extends React.Component {
 
 
         })
-        if(type == "low"){
+        if(type === "low"){
             final = lowQuality;
         }
-        else if(type=="high"){
+        else if(type==="high"){
             final = highQuality;
         }
         else{
