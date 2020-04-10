@@ -16,6 +16,7 @@ export default class AppProvider extends React.Component {
         this.actions = {
             updateList: this.updateList,
             searchResults: this.searchResults,
+            QualityCampaigns: this.QualityCampaigns,
         }
 
         this.state = {
@@ -26,11 +27,53 @@ export default class AppProvider extends React.Component {
         }
     }
 
+    QualityCampaigns = (type) => {
+        let highQuality = {};
+        let lowQuality = {};
+        let final = {};
+        
+        Object.values(this.state.campaigns).map((camps) => {
+            let id = camps.campaign_id
+            let days = parseInt(camps.days_active, 10);
+            let current_amount = parseInt(camps.current_amount, 10);
+            let goal = parseInt(camps.goal);
+            let percentComplete = current_amount/goal;
+            if(days < 100 && percentComplete > .74)
+            {
+                
+                //searchedCampaigns[id] = camps;
+                highQuality[id] =(camps);
+            }
+            else if(days > 200 && percentComplete < .51)
+            {
+                lowQuality[id] =(camps);
+            }
+
+
+
+        })
+        if(type == "low"){
+            final = lowQuality;
+        }
+        else if(type=="high"){
+            final = highQuality;
+        }
+        else{
+            final = this.state.campaigns;
+        }
+        this.setState({
+            campaignDisplays:final
+        });
+
+
+    }
+
+
     searchResults = (values) => {
-        console.log("in searchResults: ", this.state.campaigns[228593]);
+
         //this.state.campaignDisplays = {};
         let searchedCampaigns = {};
-        console.log("the value:",values.weekdays);
+
         
         Object.values(this.state.campaigns).map((camps) => {
             
@@ -147,8 +190,6 @@ export default class AppProvider extends React.Component {
         const resp = await axios.get('http://127.0.0.1:8000/api/weekday/')
         const resp2 = await axios.get('http://127.0.0.1:8000/api/campaign/')
         
-        console.log("hello there!", resp)
-        console.log("resp2 data",resp2.data)
         //console.log("the public_url", resp2)
         const cats = {}
         for (const c of resp.data) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, yupToFormErrors } from 'formik'
 import * as Yup from 'yup';
 //import axios from 'axios';
 import AppContext from './context';
@@ -47,7 +47,14 @@ const SearchController = props => {
 const FormSchema = Yup.object().shape({
     
     campaign_id: Yup.string()
-        .min(6, 'We require full id on search'),
+        .min(6, 'We require full id on search')
+        .max(6, 'We require full id on search'),
+    Title: Yup.string()
+        .max(50,"Your character search is too long"),
+    user_first_name: Yup.string()
+        .max(30,"Your character search is too long"),
+    user_last_name: Yup.string()
+        .max(30,"Your character search is too long"),
     
 });
 

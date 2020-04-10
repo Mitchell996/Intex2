@@ -17,7 +17,6 @@ function organize(name, campaigns) {
         campaigns = campaigns.filter((val) => val.is_charity===2)
     }*/
     let campaignHolder = [];
-    console.log("the campaigns:", campaigns);
     //first loop is going through every campaign
     for (let i = 0; i < campaigns.length; i += 4) {
         let fourSlots = [];
@@ -33,18 +32,13 @@ function organize(name, campaigns) {
 function SearchedCampaign(props) {
     
     const context = React.useContext(AppContext);
-    console.log("hello there", context.campaignDisplays);
     let campaigns = []
     //const [charitySort, setCharitySort] = useState(0);
-    console.log("Why is there no context?", context.campaigns);
     for (let i = 1; i < (Object.keys(context.campaignDisplays).length) + 1; i++) {
         campaigns.push(context.campaignDisplays[Object.keys(context.campaignDisplays)[i-1]])
     }
-    console.log("what is it? ", campaigns);
     let { category } = useParams();
-    
     let organizedCampaigns = organize(category, campaigns);
-    console.log("what do we have here?",organizedCampaigns);
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
