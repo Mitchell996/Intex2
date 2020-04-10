@@ -38,7 +38,7 @@ function Login(props) {
 
     return (
         <bs.Form className="my-4 mx-4" onSubmit={handleSubmit}>
-            <bs.Col md="6">
+            <bs.Col md="6" style={{margin: "0 auto", padding: "60px 0", maxWidth: "320px"}}>
                 <bs.FormGroup controlId="username" >
                     <bs.FormLabel>Username</bs.FormLabel>
                     <bs.FormControl
@@ -82,9 +82,6 @@ function Login(props) {
                     }}>
                     Login
                     </bs.Button>
-            </bs.Col>
-            <bs.Col>
-                <h4>{verify}</h4>
             </bs.Col>
         </bs.Form>
     )
