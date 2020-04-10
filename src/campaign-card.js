@@ -12,7 +12,7 @@ function CampaignCard(campaign) {
         <bs.Card.Text>
           {campaign.campaign.current_amount} / {campaign.campaign.goal} {campaign.campaign.currencyCode} raised
         </bs.Card.Text>
-        <Link className="btn btn-primary" to={"/campaign/" + campaign.campaign.campaign_id} key={campaign.campaign.campaign_id}>
+        <Link className="btn btn-success" to={"/campaign/" + campaign.campaign.campaign_id} key={campaign.campaign.campaign_id}>
           View
         </Link>
       </bs.Card.Body>
