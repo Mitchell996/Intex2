@@ -1,18 +1,12 @@
 import axios from 'axios';
 import AppContext from './context';
 import App from './App';
-// import { produce } from 'immer';
-//import ProductDetail from './ProductDetail'
 import React from 'react';
 
 export default class AppProvider extends React.Component {
-
-
     constructor(props) {
         super(props)
-        this.actions = {
 
-        }
         this.actions = {
             updateList: this.updateList,
             searchResults: this.searchResults,
@@ -27,10 +21,8 @@ export default class AppProvider extends React.Component {
     }
 
     searchResults = (values) => {
-        console.log("in searchResults: ", this.state.campaigns[228593]);
-        //this.state.campaignDisplays = {};
+        
         let searchedCampaigns = {};
-        console.log("the value:",values.weekdays);
         
         Object.values(this.state.campaigns).map((camps) => {
             
@@ -43,19 +35,19 @@ export default class AppProvider extends React.Component {
                 use = false;
             }
             if (values.campaign_id !== undefined &&values.campaign_id!==""&& camps.campaign_id !== values.campaign_id) {
-                //console.log("in campaign", use)
+                
                 use = false;
             }
             if (values.user_first_name !== undefined && values.user_first_name!=="" && !camps.user_first_name.includes(values.user_first_name)) {
-                //console.log("first", use)
+                
                 use = false;
             }
             if (values.user_last_name !== undefined && values.user_first_name!=="" && !camps.user_last_name.includes(values.user_last_name)) {
-                //console.log("last", use)
+                
                 use = false;
             }
             if (values.goal !== null&&values.goal !== undefined) {
-                //console.log("goal", use)
+                
                 if (values.goal === 1000 && goal > 1000) {
                     use = false;
                 }
@@ -67,7 +59,7 @@ export default class AppProvider extends React.Component {
                 }
             }
             if (values.donations !== null&& values.donations !== undefined) {
-                //console.log("donations", use)
+                
                 if (values.donations === 1000 && donations > 1000) {
                     use = false;
                 }
@@ -79,7 +71,7 @@ export default class AppProvider extends React.Component {
                 }
             }
             if (values.donators !== null&& values.donators !== undefined) {
-                //console.log("donators", use)
+                
                 if (values.donators === 10 && donators > 10) {
                     use = false;
                 }
@@ -91,7 +83,7 @@ export default class AppProvider extends React.Component {
                 }
             }
             if (values.beneficiary !== null&& values.beneficiary !== undefined) {
-                //console.log("beneficiary", use)
+                
                 if (values.beneficiary === true && camps.has_beneficiary === "FALSE") {
                     use = false;
                 }
@@ -101,7 +93,7 @@ export default class AppProvider extends React.Component {
 
             }
             if (values.charity !== null&&values.charity !== undefined ) {
-                //console.log("charity", use)
+                
                 if (values.charity === true && camps.is_charity === "FALSE") {
                     use = false;
                 }
@@ -117,15 +109,14 @@ export default class AppProvider extends React.Component {
 
             }
             if (use === true) {
-                //console.log("it happened!")
                 let id = camps.campaign_id
                 searchedCampaigns[id] = camps;
-                //this.state.campaignDisplays[id]= camps;
+                
             }
 
 
         })
-        //console.log("what remains", this.state.campaignDisplays);
+        
         this.setState({
             campaignDisplays: searchedCampaigns
         })
@@ -143,23 +134,19 @@ export default class AppProvider extends React.Component {
     }
 
     async componentDidMount() {
-        //console.log("hello there!")
         const resp = await axios.get('http://127.0.0.1:8000/api/weekday/')
         const resp2 = await axios.get('http://127.0.0.1:8000/api/campaign/')
-        
-        console.log("hello there!", resp)
-        console.log("resp2 data",resp2.data)
-        //console.log("the public_url", resp2)
+                
         const cats = {}
         for (const c of resp.data) {
             cats[c.id] = c
 
         }
         const prods = {}
-        //let i = 0;
+        
         for (const p of resp2.data) {
             prods[p.campaign_id] = p
-            //i++;
+            
         }
         
 

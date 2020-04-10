@@ -73,7 +73,7 @@ function Login(props) {
                         if (verify === "Welcome Manager!") {
                             history.push("/welcomemanager")
                         }
-                        else if (verify=== "You do not have access to the managers view."){
+                        else if (verify === "You do not have access to the managers view."){
                             alert(verify)
                         }
                         else{

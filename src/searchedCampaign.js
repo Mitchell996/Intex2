@@ -1,4 +1,4 @@
-import React, {/* useState */} from 'react'
+import React from 'react'
 import * as bs from 'react-bootstrap'
 import CampaignCard from './campaign-card'
 import { useParams } from 'react-router-dom';
@@ -10,12 +10,6 @@ function organize(name, campaigns) {
     if (name != null) {
         campaigns = campaigns.filter((val) => val.category.title === name)
     }
-   /* if(charitySort==1){
-        campaigns = campaigns.filter((val) => val.is_charity===1)
-    }
-    else if(charitySort==2){
-        campaigns = campaigns.filter((val) => val.is_charity===2)
-    }*/
     let campaignHolder = [];
     console.log("the campaigns:", campaigns);
     //first loop is going through every campaign
@@ -33,18 +27,16 @@ function organize(name, campaigns) {
 function SearchedCampaign(props) {
     
     const context = React.useContext(AppContext);
-    console.log("hello there", context.campaignDisplays);
+    
     let campaigns = []
-    //const [charitySort, setCharitySort] = useState(0);
-    console.log("Why is there no context?", context.campaigns);
     for (let i = 1; i < (Object.keys(context.campaignDisplays).length) + 1; i++) {
         campaigns.push(context.campaignDisplays[Object.keys(context.campaignDisplays)[i-1]])
     }
-    console.log("what is it? ", campaigns);
+    
     let { category } = useParams();
     
     let organizedCampaigns = organize(category, campaigns);
-    console.log("what do we have here?",organizedCampaigns);
+    
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
