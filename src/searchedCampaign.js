@@ -1,4 +1,4 @@
-import React, {/* useState */} from 'react'
+import React from 'react'
 import * as bs from 'react-bootstrap'
 import CampaignCard from './campaign-card'
 import { useParams } from 'react-router-dom';
@@ -10,12 +10,6 @@ function organize(name, campaigns) {
     if (name != null) {
         campaigns = campaigns.filter((val) => val.category.title === name)
     }
-   /* if(charitySort==1){
-        campaigns = campaigns.filter((val) => val.is_charity===1)
-    }
-    else if(charitySort==2){
-        campaigns = campaigns.filter((val) => val.is_charity===2)
-    }*/
     let campaignHolder = [];
     //first loop is going through every campaign
     for (let i = 0; i < campaigns.length; i += 4) {
@@ -42,7 +36,7 @@ function SearchedCampaign(props) {
     let count = 0;
     return (
         <bs.Container fluid className="p-0">
-            <h2 className="my-4 mx-4">Search Results</h2>
+            <h2 className="my-4 mx-4 text-center">Search Results</h2>
             <bs.Row noGutters style={{ padding: "3rem 0" }}>
                 <div className="text-center mt-5">
                     {/* list the objects, but make sure that we don't try and make a card for a campaign that isn't there.  */}

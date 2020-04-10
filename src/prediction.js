@@ -9,10 +9,10 @@ export default function Prediction(props){
 
     return (
     <>
-        <bs.Alert show={show} variant="success">
-        <bs.Alert.Heading>How Successful is Your Campaign?</bs.Alert.Heading>
+        <bs.Alert show={show} variant="success" className="mx-4 my-4">
+        <bs.Alert.Heading>How Successful Will Your Campaign Be?</bs.Alert.Heading>
         <p>
-            Based on the parameters you provided, your campaign is predicted to reach its goal in {Math.round(context.currentEstimate)} days. 
+            Based on the parameters you provided, your campaign is predicted to reach its goal in <b>{Math.round(context.currentEstimate)}</b> days. 
         </p>
         <hr />
         <div className="d-flex justify-content-end">

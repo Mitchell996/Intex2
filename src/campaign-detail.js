@@ -12,7 +12,6 @@ export default function ProductDetail(props) {
     
     //booleans do not show up, so changed it so they will display something
     let beneficiary = unoCampaign.has_beneficiary
-    //let charity = unoCampaign.is_charity
     let facebook = unoCampaign.auto_fb_post_mode
     let search = unoCampaign.visible_in_search
     
@@ -21,13 +20,6 @@ export default function ProductDetail(props) {
     } else{
         beneficiary = 'Yes'
     }
-    // if (unoCampaign.is_charity === 'FALSE'){
-    //     charity = 'No'
-    // } else if (unoCampaign.is_charity === 'TRUE'){
-    //     charity = 'Yes'
-    // } else{
-    //     charity = 'N/A'
-    //}
     if (unoCampaign.auto_fb_post_mode === 'FALSE'){
         facebook = 'No'
     } else{
@@ -71,7 +63,6 @@ export default function ProductDetail(props) {
                     <h3>Additional Info:</h3> 
                     <ul>
                         <li>Are there beneficiaries?  <em>{beneficiary}</em></li>
-                        {/* <li>Is the creator a charity?  <em>{charity}</em></li> */}
                         <li>Are updates automatically posted to FaceBook?  <em>{facebook}</em></li>
                         <li>Is it available in search?  <em>{search}</em></li>
                     </ul>

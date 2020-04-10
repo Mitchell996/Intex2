@@ -21,14 +21,7 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-                currencyCode: "USD",
-                goal: 5000,
-                has_beneficiary: false,
-                visible_in_search: true,
-                auto_fb_post_mode: false,
-                weekday: "Monday",
-                time_of_day: "2:05pm",
-                is_charity: false,
+                
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -63,7 +56,7 @@ const FormController = props => {
                     "Inputs": {
                         "input1": {
                             "ColumnNames": ["auto_fb_post_mode", "current_amount", "goal", "has_beneficiary", "days_active", "is_charity", "weekday", "time_of_day"],
-                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked. has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
+                            "Values": [ [ picked.auto_fb_post_mode, picked.current_amount, picked.goal, picked.has_beneficiary, picked.days_active, picked.is_charity, picked.weekday, picked.time_of_day ], ]
                         },
                     },
                     "GlobalParameters": {}
@@ -95,7 +88,7 @@ const FormController = props => {
 
             }}
         >{form => (
-            <CampaignForm form={form} error={error} /> //Don't know what to do for total in this part (like in our sprint)... total={total}
+            <CampaignForm form={form} error={error} /> 
         )}</Formik>
     )
 }
@@ -134,7 +127,7 @@ const CampaignForm = props => (
                 <bs.Col>
                     <bs.Card.Header as="h5">Predict Your Campaign's Success</bs.Card.Header>
                     <bs.Card.Body>
-                        <Input title="Type of Currency:" name="currencycode" placeholder="USD" type="text" />
+                        <Input title="Type of Currency:" name="currencyCode" placeholder="USD" type="text" />
                         <Input title="Your Goal:" name="goal" type="number" placeholder="1000" />
                         <Input title="Day of Week Launched:" name="weekday" type="text" placeholder="Monday" />
                         <Input title="Time of Day Launched:" name="time_of_day" type="text" placeholder="12:00pm" />

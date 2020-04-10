@@ -9,7 +9,7 @@ function Manager(props) {
     const context = React.useContext(AppContext);
     return (
         <>
-            <bs.Alert show={show} variant="success">
+            <bs.Alert show={show} variant="success" className="mx-4 my-4">
                 <bs.Alert.Heading>Welcome to the Managers page!</bs.Alert.Heading>
                 <p>
                     How are we going to display the highest and lowest quality campaigns here????

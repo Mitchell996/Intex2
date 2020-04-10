@@ -127,6 +127,7 @@ const PaymentForm = props => (
                     <bs.Button className="btn btn-success mx-2" type="submit" >
                         Search
                     </bs.Button>
+                    <p></p>
                 </bs.Col>
             </bs.Row>
         </bs.Container>

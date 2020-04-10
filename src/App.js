@@ -3,7 +3,6 @@ import './App.scss';
 import Home from './home';
 import CampaignDetail from './campaign-detail'
 import HeaderContainer from './header-container'
-//import LeftContainer from './left-container'
 import Form from './goFundMeForm'
 import Prediction from './prediction'
 import Managers from './managers'
@@ -27,7 +26,7 @@ function App() {
           </Col>
         </Row>
         <Row noGutters className="flex-grow-1">
-          <Col md="8">
+          <Col md="12">
             <Switch>
 
               <Route path="/home" >
@@ -76,14 +75,6 @@ function App() {
 
 
             </Switch>
-          </Col>
-          {/*<Col md="2" className="px-3 py-4 shadow" style={{backgroundColor:"#CCCC99"}}>
-              <RightContainer />
-           </Col>*/}
-        </Row>
-        <Row noGutters className="flexGrow-0 flex-shrink-0">
-          <Col className="px-3 py-2">
-            {/* <FooterContainer /> */}
           </Col>
         </Row>
       </Container>
